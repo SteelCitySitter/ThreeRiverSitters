@@ -1,545 +1,1583 @@
-// !$*UTF8*$!
-{
-	archiveVersion = 1;
-	classes = {
-	};
-	objectVersion = 46;
-	objects = {
-
-/* Begin PBXBuildFile section */
-		10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F373371D98C7A5007AD400 /* AppDelegate.swift */; };
-		10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */; };
-		10F3733D1D98C7A5007AD400 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3733C1D98C7A5007AD400 /* MasterViewController.swift */; };
-		10F3733F1D98C7A5007AD400 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3733E1D98C7A5007AD400 /* DetailViewController.swift */; };
-		10F373421D98C7A5007AD400 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F373401D98C7A5007AD400 /* Main.storyboard */; };
-		10F373441D98C7A5007AD400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10F373431D98C7A5007AD400 /* Assets.xcassets */; };
-		10F373471D98C7A5007AD400 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10F373451D98C7A5007AD400 /* LaunchScreen.storyboard */; };
-		10F373521D98C7A5007AD400 /* Three_Rivers_SittersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F373511D98C7A5007AD400 /* Three_Rivers_SittersTests.swift */; };
-		10F3735D1D98C7A5007AD400 /* Three_Rivers_SittersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3735C1D98C7A5007AD400 /* Three_Rivers_SittersUITests.swift */; };
-/* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		10F3734E1D98C7A5007AD400 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10F3732C1D98C7A5007AD400 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10F373331D98C7A5007AD400;
-			remoteInfo = "Three Rivers Sitters";
-		};
-		10F373591D98C7A5007AD400 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 10F3732C1D98C7A5007AD400 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 10F373331D98C7A5007AD400;
-			remoteInfo = "Three Rivers Sitters";
-		};
-/* End PBXContainerItemProxy section */
-
-/* Begin PBXFileReference section */
-		10F373341D98C7A5007AD400 /* Three Rivers Sitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Three Rivers Sitters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		10F373371D98C7A5007AD400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Three_Rivers_Sitters.xcdatamodel; sourceTree = "<group>"; };
-		10F3733C1D98C7A5007AD400 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
-		10F3733E1D98C7A5007AD400 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
-		10F373411D98C7A5007AD400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		10F373431D98C7A5007AD400 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		10F373461D98C7A5007AD400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		10F373481D98C7A5007AD400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10F3734D1D98C7A5007AD400 /* Three Rivers SittersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Three Rivers SittersTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		10F373511D98C7A5007AD400 /* Three_Rivers_SittersTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Three_Rivers_SittersTests.swift; sourceTree = "<group>"; };
-		10F373531D98C7A5007AD400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		10F373581D98C7A5007AD400 /* Three Rivers SittersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Three Rivers SittersUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		10F3735C1D98C7A5007AD400 /* Three_Rivers_SittersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Three_Rivers_SittersUITests.swift; sourceTree = "<group>"; };
-		10F3735E1D98C7A5007AD400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-/* End PBXFileReference section */
-
-/* Begin PBXFrameworksBuildPhase section */
-		10F373311D98C7A5007AD400 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F3734A1D98C7A5007AD400 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F373551D98C7A5007AD400 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
-/* Begin PBXGroup section */
-		10F3732B1D98C7A5007AD400 = {
-			isa = PBXGroup;
-			children = (
-				10F373361D98C7A5007AD400 /* Three Rivers Sitters */,
-				10F373501D98C7A5007AD400 /* Three Rivers SittersTests */,
-				10F3735B1D98C7A5007AD400 /* Three Rivers SittersUITests */,
-				10F373351D98C7A5007AD400 /* Products */,
-			);
-			sourceTree = "<group>";
-		};
-		10F373351D98C7A5007AD400 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				10F373341D98C7A5007AD400 /* Three Rivers Sitters.app */,
-				10F3734D1D98C7A5007AD400 /* Three Rivers SittersTests.xctest */,
-				10F373581D98C7A5007AD400 /* Three Rivers SittersUITests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		10F373361D98C7A5007AD400 /* Three Rivers Sitters */ = {
-			isa = PBXGroup;
-			children = (
-				10F373371D98C7A5007AD400 /* AppDelegate.swift */,
-				10F3733C1D98C7A5007AD400 /* MasterViewController.swift */,
-				10F3733E1D98C7A5007AD400 /* DetailViewController.swift */,
-				10F373401D98C7A5007AD400 /* Main.storyboard */,
-				10F373431D98C7A5007AD400 /* Assets.xcassets */,
-				10F373451D98C7A5007AD400 /* LaunchScreen.storyboard */,
-				10F373481D98C7A5007AD400 /* Info.plist */,
-				10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */,
-			);
-			path = "Three Rivers Sitters";
-			sourceTree = "<group>";
-		};
-		10F373501D98C7A5007AD400 /* Three Rivers SittersTests */ = {
-			isa = PBXGroup;
-			children = (
-				10F373511D98C7A5007AD400 /* Three_Rivers_SittersTests.swift */,
-				10F373531D98C7A5007AD400 /* Info.plist */,
-			);
-			path = "Three Rivers SittersTests";
-			sourceTree = "<group>";
-		};
-		10F3735B1D98C7A5007AD400 /* Three Rivers SittersUITests */ = {
-			isa = PBXGroup;
-			children = (
-				10F3735C1D98C7A5007AD400 /* Three_Rivers_SittersUITests.swift */,
-				10F3735E1D98C7A5007AD400 /* Info.plist */,
-			);
-			path = "Three Rivers SittersUITests";
-			sourceTree = "<group>";
-		};
-/* End PBXGroup section */
-
-/* Begin PBXNativeTarget section */
-		10F373331D98C7A5007AD400 /* Three Rivers Sitters */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10F373611D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers Sitters" */;
-			buildPhases = (
-				10F373301D98C7A5007AD400 /* Sources */,
-				10F373311D98C7A5007AD400 /* Frameworks */,
-				10F373321D98C7A5007AD400 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Three Rivers Sitters";
-			productName = "Three Rivers Sitters";
-			productReference = 10F373341D98C7A5007AD400 /* Three Rivers Sitters.app */;
-			productType = "com.apple.product-type.application";
-		};
-		10F3734C1D98C7A5007AD400 /* Three Rivers SittersTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10F373641D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers SittersTests" */;
-			buildPhases = (
-				10F373491D98C7A5007AD400 /* Sources */,
-				10F3734A1D98C7A5007AD400 /* Frameworks */,
-				10F3734B1D98C7A5007AD400 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				10F3734F1D98C7A5007AD400 /* PBXTargetDependency */,
-			);
-			name = "Three Rivers SittersTests";
-			productName = "Three Rivers SittersTests";
-			productReference = 10F3734D1D98C7A5007AD400 /* Three Rivers SittersTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		10F373571D98C7A5007AD400 /* Three Rivers SittersUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 10F373671D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers SittersUITests" */;
-			buildPhases = (
-				10F373541D98C7A5007AD400 /* Sources */,
-				10F373551D98C7A5007AD400 /* Frameworks */,
-				10F373561D98C7A5007AD400 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				10F3735A1D98C7A5007AD400 /* PBXTargetDependency */,
-			);
-			name = "Three Rivers SittersUITests";
-			productName = "Three Rivers SittersUITests";
-			productReference = 10F373581D98C7A5007AD400 /* Three Rivers SittersUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
-/* End PBXNativeTarget section */
-
-/* Begin PBXProject section */
-		10F3732C1D98C7A5007AD400 /* Project object */ = {
-			isa = PBXProject;
-			attributes = {
-				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
-				ORGANIZATIONNAME = "Three Rivers Sitters";
-				TargetAttributes = {
-					10F373331D98C7A5007AD400 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = F93KH9X25B;
-						DevelopmentTeamName = "Shrinath Badrinarayanan";
-						ProvisioningStyle = Automatic;
-					};
-					10F3734C1D98C7A5007AD400 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = F93KH9X25B;
-						DevelopmentTeamName = "Shrinath Badrinarayanan";
-						ProvisioningStyle = Automatic;
-						TestTargetID = 10F373331D98C7A5007AD400;
-					};
-					10F373571D98C7A5007AD400 = {
-						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = F93KH9X25B;
-						DevelopmentTeamName = "Shrinath Badrinarayanan";
-						ProvisioningStyle = Automatic;
-						TestTargetID = 10F373331D98C7A5007AD400;
-					};
-				};
-			};
-			buildConfigurationList = 10F3732F1D98C7A5007AD400 /* Build configuration list for PBXProject "Three Rivers Sitters" */;
-			compatibilityVersion = "Xcode 3.2";
-			developmentRegion = English;
-			hasScannedForEncodings = 0;
-			knownRegions = (
-				en,
-				Base,
-			);
-			mainGroup = 10F3732B1D98C7A5007AD400;
-			productRefGroup = 10F373351D98C7A5007AD400 /* Products */;
-			projectDirPath = "";
-			projectRoot = "";
-			targets = (
-				10F373331D98C7A5007AD400 /* Three Rivers Sitters */,
-				10F3734C1D98C7A5007AD400 /* Three Rivers SittersTests */,
-				10F373571D98C7A5007AD400 /* Three Rivers SittersUITests */,
-			);
-		};
-/* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		10F373321D98C7A5007AD400 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10F373471D98C7A5007AD400 /* LaunchScreen.storyboard in Resources */,
-				10F373441D98C7A5007AD400 /* Assets.xcassets in Resources */,
-				10F373421D98C7A5007AD400 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F3734B1D98C7A5007AD400 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F373561D98C7A5007AD400 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
-
-/* Begin PBXSourcesBuildPhase section */
-		10F373301D98C7A5007AD400 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */,
-				10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */,
-				10F3733D1D98C7A5007AD400 /* MasterViewController.swift in Sources */,
-				10F3733F1D98C7A5007AD400 /* DetailViewController.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F373491D98C7A5007AD400 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10F373521D98C7A5007AD400 /* Three_Rivers_SittersTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		10F373541D98C7A5007AD400 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				10F3735D1D98C7A5007AD400 /* Three_Rivers_SittersUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		10F3734F1D98C7A5007AD400 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 10F373331D98C7A5007AD400 /* Three Rivers Sitters */;
-			targetProxy = 10F3734E1D98C7A5007AD400 /* PBXContainerItemProxy */;
-		};
-		10F3735A1D98C7A5007AD400 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 10F373331D98C7A5007AD400 /* Three Rivers Sitters */;
-			targetProxy = 10F373591D98C7A5007AD400 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		10F373401D98C7A5007AD400 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				10F373411D98C7A5007AD400 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		10F373451D98C7A5007AD400 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				10F373461D98C7A5007AD400 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
-
-/* Begin XCBuildConfiguration section */
-		10F3735F1D98C7A5007AD400 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-			};
-			name = Debug;
-		};
-		10F373601D98C7A5007AD400 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				SDKROOT = iphoneos;
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
-		10F373621D98C7A5007AD400 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Three Rivers Sitters/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-Sitters";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Debug;
-		};
-		10F373631D98C7A5007AD400 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = "Three Rivers Sitters/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-Sitters";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Release;
-		};
-		10F373651D98C7A5007AD400 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Three Rivers SittersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-SittersTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Three Rivers Sitters.app/Three Rivers Sitters";
-			};
-			name = Debug;
-		};
-		10F373661D98C7A5007AD400 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = "Three Rivers SittersTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-SittersTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Three Rivers Sitters.app/Three Rivers Sitters";
-			};
-			name = Release;
-		};
-		10F373681D98C7A5007AD400 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Three Rivers SittersUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-SittersUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Three Rivers Sitters";
-			};
-			name = Debug;
-		};
-		10F373691D98C7A5007AD400 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				INFOPLIST_FILE = "Three Rivers SittersUITests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.threeriverssitters.Three-Rivers-SittersUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = "Three Rivers Sitters";
-			};
-			name = Release;
-		};
-/* End XCBuildConfiguration section */
-
-/* Begin XCConfigurationList section */
-		10F3732F1D98C7A5007AD400 /* Build configuration list for PBXProject "Three Rivers Sitters" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10F3735F1D98C7A5007AD400 /* Debug */,
-				10F373601D98C7A5007AD400 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		10F373611D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers Sitters" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10F373621D98C7A5007AD400 /* Debug */,
-				10F373631D98C7A5007AD400 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		10F373641D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers SittersTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10F373651D98C7A5007AD400 /* Debug */,
-				10F373661D98C7A5007AD400 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-		10F373671D98C7A5007AD400 /* Build configuration list for PBXNativeTarget "Three Rivers SittersUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				10F373681D98C7A5007AD400 /* Debug */,
-				10F373691D98C7A5007AD400 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-		};
-/* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */,
-			);
-			currentVersion = 10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */;
-			path = Three_Rivers_Sitters.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
-	};
-	rootObject = 10F3732C1D98C7A5007AD400 /* Project object */;
-}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>archiveVersion</key>
+	<string>1</string>
+	<key>classes</key>
+	<dict/>
+	<key>objectVersion</key>
+	<string>46</string>
+	<key>objects</key>
+	<dict>
+		<key>01394E95BE0DE8601D9D6E82</key>
+		<dict>
+			<key>fileRef</key>
+			<string>D04104F41CD0BF53AF2E9431</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>0DC0B20AD2EC5FDA23C0ED96</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>109BDBFC1DB7F1CA008B3832</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>HomeTextField.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109BDBFD1DB7F1CB008B3832</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109BDBFC1DB7F1CA008B3832</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>109F19081DA07CFB0078EB37</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LoginTextField.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>109F19091DA07CFB0078EB37</key>
+		<dict>
+			<key>fileRef</key>
+			<string>109F19081DA07CFB0078EB37</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3732B1D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373361D98C7A5007AD400</string>
+				<string>10F373501D98C7A5007AD400</string>
+				<string>10F3735B1D98C7A5007AD400</string>
+				<string>10F373351D98C7A5007AD400</string>
+				<string>804BFDDE532CEF610FB91359</string>
+				<string>6B846AAE1A0E25D53C6D39EE</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3732C1D98C7A5007AD400</key>
+		<dict>
+			<key>attributes</key>
+			<dict>
+				<key>LastSwiftUpdateCheck</key>
+				<string>0800</string>
+				<key>LastUpgradeCheck</key>
+				<string>0800</string>
+				<key>ORGANIZATIONNAME</key>
+				<string>Three Rivers Sitters</string>
+				<key>TargetAttributes</key>
+				<dict>
+					<key>10F373331D98C7A5007AD400</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>F93KH9X25B</string>
+						<key>DevelopmentTeamName</key>
+						<string>Shrinath Badrinarayanan</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+					</dict>
+					<key>10F3734C1D98C7A5007AD400</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>F93KH9X25B</string>
+						<key>DevelopmentTeamName</key>
+						<string>Shrinath Badrinarayanan</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>TestTargetID</key>
+						<string>10F373331D98C7A5007AD400</string>
+					</dict>
+					<key>10F373571D98C7A5007AD400</key>
+					<dict>
+						<key>CreatedOnToolsVersion</key>
+						<string>8.0</string>
+						<key>DevelopmentTeam</key>
+						<string>F93KH9X25B</string>
+						<key>DevelopmentTeamName</key>
+						<string>Shrinath Badrinarayanan</string>
+						<key>ProvisioningStyle</key>
+						<string>Automatic</string>
+						<key>TestTargetID</key>
+						<string>10F373331D98C7A5007AD400</string>
+					</dict>
+				</dict>
+			</dict>
+			<key>buildConfigurationList</key>
+			<string>10F3732F1D98C7A5007AD400</string>
+			<key>compatibilityVersion</key>
+			<string>Xcode 3.2</string>
+			<key>developmentRegion</key>
+			<string>English</string>
+			<key>hasScannedForEncodings</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXProject</string>
+			<key>knownRegions</key>
+			<array>
+				<string>en</string>
+				<string>Base</string>
+			</array>
+			<key>mainGroup</key>
+			<string>10F3732B1D98C7A5007AD400</string>
+			<key>productRefGroup</key>
+			<string>10F373351D98C7A5007AD400</string>
+			<key>projectDirPath</key>
+			<string></string>
+			<key>projectReferences</key>
+			<array/>
+			<key>projectRoot</key>
+			<string></string>
+			<key>targets</key>
+			<array>
+				<string>10F373331D98C7A5007AD400</string>
+				<string>10F3734C1D98C7A5007AD400</string>
+				<string>10F373571D98C7A5007AD400</string>
+			</array>
+		</dict>
+		<key>10F3732F1D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>10F3735F1D98C7A5007AD400</string>
+				<string>10F373601D98C7A5007AD400</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>10F373301D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F3733B1D98C7A5007AD400</string>
+				<string>109BDBFD1DB7F1CB008B3832</string>
+				<string>10F373381D98C7A5007AD400</string>
+				<string>10F3733D1D98C7A5007AD400</string>
+				<string>10F3733F1D98C7A5007AD400</string>
+				<string>109F19091DA07CFB0078EB37</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373311D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>01394E95BE0DE8601D9D6E82</string>
+			</array>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373321D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F373471D98C7A5007AD400</string>
+				<string>10F3736B1D98C832007AD400</string>
+				<string>10F373441D98C7A5007AD400</string>
+				<string>10F373421D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373331D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>10F373611D98C7A5007AD400</string>
+			<key>buildPhases</key>
+			<array>
+				<string>0DC0B20AD2EC5FDA23C0ED96</string>
+				<string>8E020E2A4C710BD0924C0A20</string>
+				<string>ABFC1DB3A6158FD6EEC4EBD1</string>
+				<string>10F373301D98C7A5007AD400</string>
+				<string>10F373311D98C7A5007AD400</string>
+				<string>10F373321D98C7A5007AD400</string>
+				<string>BA9295CE1740B0E5E37D6D1E</string>
+				<string>4F4BE7DDC81C8CBF17C31CB5</string>
+				<string>8EA15D292E438E9D1090488B</string>
+				<string>21E3F367CF7124E9CF644091</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Three Rivers Sitters</string>
+			<key>productName</key>
+			<string>Three Rivers Sitters</string>
+			<key>productReference</key>
+			<string>10F373341D98C7A5007AD400</string>
+			<key>productType</key>
+			<string>com.apple.product-type.application</string>
+		</dict>
+		<key>10F373341D98C7A5007AD400</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.application</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Three Rivers Sitters.app</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>10F373351D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373341D98C7A5007AD400</string>
+				<string>10F3734D1D98C7A5007AD400</string>
+				<string>10F373581D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Products</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373361D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373371D98C7A5007AD400</string>
+				<string>10F3733C1D98C7A5007AD400</string>
+				<string>10F3733E1D98C7A5007AD400</string>
+				<string>109F19081DA07CFB0078EB37</string>
+				<string>109BDBFC1DB7F1CA008B3832</string>
+				<string>10F373401D98C7A5007AD400</string>
+				<string>10F373431D98C7A5007AD400</string>
+				<string>10F373451D98C7A5007AD400</string>
+				<string>10F373481D98C7A5007AD400</string>
+				<string>10F3736A1D98C832007AD400</string>
+				<string>10F373391D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Three Rivers Sitters</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373371D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>AppDelegate.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373381D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373371D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373391D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F3733A1D98C7A5007AD400</string>
+			</array>
+			<key>currentVersion</key>
+			<string>10F3733A1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>XCVersionGroup</string>
+			<key>path</key>
+			<string>Three_Rivers_Sitters.xcdatamodeld</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+			<key>versionGroupType</key>
+			<string>wrapper.xcdatamodel</string>
+		</dict>
+		<key>10F3733A1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>wrapper.xcdatamodel</string>
+			<key>path</key>
+			<string>Three_Rivers_Sitters.xcdatamodel</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3733B1D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373391D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3733C1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>LoginViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3733D1D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3733C1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3733E1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>SignupViewController.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3733F1D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3733E1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373401D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373411D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373411D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/Main.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373421D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373401D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373431D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>folder.assetcatalog</string>
+			<key>path</key>
+			<string>Assets.xcassets</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373441D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373431D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373451D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373461D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXVariantGroup</string>
+			<key>name</key>
+			<string>LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373461D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>file.storyboard</string>
+			<key>name</key>
+			<string>Base</string>
+			<key>path</key>
+			<string>Base.lproj/LaunchScreen.storyboard</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373471D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373451D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373481D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373491D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F373521D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F3734A1D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F3734B1D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F3736C1D98C832007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F3734C1D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>10F373641D98C7A5007AD400</string>
+			<key>buildPhases</key>
+			<array>
+				<string>7533B111AC8BB016733BA33B</string>
+				<string>10F373491D98C7A5007AD400</string>
+				<string>10F3734A1D98C7A5007AD400</string>
+				<string>10F3734B1D98C7A5007AD400</string>
+				<string>98E1821F922475ED7C1063E5</string>
+				<string>77E53F416EF1D8124FD3C847</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>10F3734F1D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Three Rivers SittersTests</string>
+			<key>productName</key>
+			<string>Three Rivers SittersTests</string>
+			<key>productReference</key>
+			<string>10F3734D1D98C7A5007AD400</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.unit-test</string>
+		</dict>
+		<key>10F3734D1D98C7A5007AD400</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Three Rivers SittersTests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>10F3734E1D98C7A5007AD400</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>10F3732C1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>10F373331D98C7A5007AD400</string>
+			<key>remoteInfo</key>
+			<string>Three Rivers Sitters</string>
+		</dict>
+		<key>10F3734F1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>10F373331D98C7A5007AD400</string>
+			<key>targetProxy</key>
+			<string>10F3734E1D98C7A5007AD400</string>
+		</dict>
+		<key>10F373501D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F373511D98C7A5007AD400</string>
+				<string>10F373531D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Three Rivers SittersTests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373511D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Three_Rivers_SittersTests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373521D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F373511D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F373531D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F373541D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F3735D1D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXSourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373551D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXFrameworksBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373561D98C7A5007AD400</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array>
+				<string>10F3736D1D98C832007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXResourcesBuildPhase</string>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+		</dict>
+		<key>10F373571D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurationList</key>
+			<string>10F373671D98C7A5007AD400</string>
+			<key>buildPhases</key>
+			<array>
+				<string>5F0D30D042C93F53719C0F24</string>
+				<string>10F373541D98C7A5007AD400</string>
+				<string>10F373551D98C7A5007AD400</string>
+				<string>10F373561D98C7A5007AD400</string>
+				<string>91EFEFA0625527F8C591E87A</string>
+			</array>
+			<key>buildRules</key>
+			<array/>
+			<key>dependencies</key>
+			<array>
+				<string>10F3735A1D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXNativeTarget</string>
+			<key>name</key>
+			<string>Three Rivers SittersUITests</string>
+			<key>productName</key>
+			<string>Three Rivers SittersUITests</string>
+			<key>productReference</key>
+			<string>10F373581D98C7A5007AD400</string>
+			<key>productType</key>
+			<string>com.apple.product-type.bundle.ui-testing</string>
+		</dict>
+		<key>10F373581D98C7A5007AD400</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.cfbundle</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Three Rivers SittersUITests.xctest</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>10F373591D98C7A5007AD400</key>
+		<dict>
+			<key>containerPortal</key>
+			<string>10F3732C1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXContainerItemProxy</string>
+			<key>proxyType</key>
+			<string>1</string>
+			<key>remoteGlobalIDString</key>
+			<string>10F373331D98C7A5007AD400</string>
+			<key>remoteInfo</key>
+			<string>Three Rivers Sitters</string>
+		</dict>
+		<key>10F3735A1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXTargetDependency</string>
+			<key>target</key>
+			<string>10F373331D98C7A5007AD400</string>
+			<key>targetProxy</key>
+			<string>10F373591D98C7A5007AD400</string>
+		</dict>
+		<key>10F3735B1D98C7A5007AD400</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>10F3735C1D98C7A5007AD400</string>
+				<string>10F3735E1D98C7A5007AD400</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>path</key>
+			<string>Three Rivers SittersUITests</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3735C1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.swift</string>
+			<key>path</key>
+			<string>Three_Rivers_SittersUITests.swift</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3735D1D98C7A5007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3735C1D98C7A5007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3735E1D98C7A5007AD400</key>
+		<dict>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3735F1D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>ENABLE_TESTABILITY</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_DYNAMIC_NO_PIC</key>
+				<string>NO</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_OPTIMIZATION_LEVEL</key>
+				<string>0</string>
+				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
+				<array>
+					<string>DEBUG=1</string>
+					<string>$(inherited)</string>
+				</array>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>YES</string>
+				<key>ONLY_ACTIVE_ARCH</key>
+				<string>YES</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_ACTIVE_COMPILATION_CONDITIONS</key>
+				<string>DEBUG</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Onone</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>10F373601D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>ALWAYS_SEARCH_USER_PATHS</key>
+				<string>NO</string>
+				<key>CLANG_ANALYZER_NONNULL</key>
+				<string>YES</string>
+				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
+				<string>gnu++0x</string>
+				<key>CLANG_CXX_LIBRARY</key>
+				<string>libc++</string>
+				<key>CLANG_ENABLE_MODULES</key>
+				<string>YES</string>
+				<key>CLANG_ENABLE_OBJC_ARC</key>
+				<string>YES</string>
+				<key>CLANG_WARN_BOOL_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_DOCUMENTATION_COMMENTS</key>
+				<string>YES</string>
+				<key>CLANG_WARN_EMPTY_BODY</key>
+				<string>YES</string>
+				<key>CLANG_WARN_ENUM_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_INT_CONVERSION</key>
+				<string>YES</string>
+				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
+				<string>YES_ERROR</string>
+				<key>CLANG_WARN_UNREACHABLE_CODE</key>
+				<string>YES</string>
+				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
+				<string>YES</string>
+				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
+				<string>iPhone Developer</string>
+				<key>COPY_PHASE_STRIP</key>
+				<string>NO</string>
+				<key>DEBUG_INFORMATION_FORMAT</key>
+				<string>dwarf-with-dsym</string>
+				<key>ENABLE_NS_ASSERTIONS</key>
+				<string>NO</string>
+				<key>ENABLE_STRICT_OBJC_MSGSEND</key>
+				<string>YES</string>
+				<key>GCC_C_LANGUAGE_STANDARD</key>
+				<string>gnu99</string>
+				<key>GCC_NO_COMMON_BLOCKS</key>
+				<string>YES</string>
+				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
+				<string>YES</string>
+				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
+				<string>YES_ERROR</string>
+				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
+				<string>YES_AGGRESSIVE</string>
+				<key>GCC_WARN_UNUSED_FUNCTION</key>
+				<string>YES</string>
+				<key>GCC_WARN_UNUSED_VARIABLE</key>
+				<string>YES</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>9.0</string>
+				<key>MTL_ENABLE_DEBUG_INFO</key>
+				<string>NO</string>
+				<key>SDKROOT</key>
+				<string>iphoneos</string>
+				<key>SWIFT_OPTIMIZATION_LEVEL</key>
+				<string>-Owholemodule</string>
+				<key>VALIDATE_PRODUCT</key>
+				<string>YES</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>10F373611D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>10F373621D98C7A5007AD400</string>
+				<string>10F373631D98C7A5007AD400</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>10F373621D98C7A5007AD400</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>7F9F3439AD2723DDCB612A03</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers Sitters/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-Sitters</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>10F373631D98C7A5007AD400</key>
+		<dict>
+			<key>baseConfigurationReference</key>
+			<string>70E179D0061A9D36EC199879</string>
+			<key>buildSettings</key>
+			<dict>
+				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
+				<string>AppIcon</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers Sitters/Info.plist</string>
+				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
+				<string>10.0</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-Sitters</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>10F373641D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>10F373651D98C7A5007AD400</string>
+				<string>10F373661D98C7A5007AD400</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>10F373651D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers SittersTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-SittersTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Three Rivers Sitters.app/Three Rivers Sitters</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>10F373661D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>BUNDLE_LOADER</key>
+				<string>$(TEST_HOST)</string>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers SittersTests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-SittersTests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_HOST</key>
+				<string>$(BUILT_PRODUCTS_DIR)/Three Rivers Sitters.app/Three Rivers Sitters</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>10F373671D98C7A5007AD400</key>
+		<dict>
+			<key>buildConfigurations</key>
+			<array>
+				<string>10F373681D98C7A5007AD400</string>
+				<string>10F373691D98C7A5007AD400</string>
+			</array>
+			<key>defaultConfigurationIsVisible</key>
+			<string>0</string>
+			<key>defaultConfigurationName</key>
+			<string>Release</string>
+			<key>isa</key>
+			<string>XCConfigurationList</string>
+		</dict>
+		<key>10F373681D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers SittersUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-SittersUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Three Rivers Sitters</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Debug</string>
+		</dict>
+		<key>10F373691D98C7A5007AD400</key>
+		<dict>
+			<key>buildSettings</key>
+			<dict>
+				<key>INFOPLIST_FILE</key>
+				<string>Three Rivers SittersUITests/Info.plist</string>
+				<key>LD_RUNPATH_SEARCH_PATHS</key>
+				<string>$(inherited) @executable_path/Frameworks @loader_path/Frameworks</string>
+				<key>PRODUCT_BUNDLE_IDENTIFIER</key>
+				<string>com.threeriverssitters.Three-Rivers-SittersUITests</string>
+				<key>PRODUCT_NAME</key>
+				<string>$(TARGET_NAME)</string>
+				<key>SWIFT_VERSION</key>
+				<string>3.0</string>
+				<key>TEST_TARGET_NAME</key>
+				<string>Three Rivers Sitters</string>
+			</dict>
+			<key>isa</key>
+			<string>XCBuildConfiguration</string>
+			<key>name</key>
+			<string>Release</string>
+		</dict>
+		<key>10F3736A1D98C832007AD400</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.plist.xml</string>
+			<key>path</key>
+			<string>GoogleService-Info.plist</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>10F3736B1D98C832007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3736A1D98C832007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3736C1D98C832007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3736A1D98C832007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>10F3736D1D98C832007AD400</key>
+		<dict>
+			<key>fileRef</key>
+			<string>10F3736A1D98C832007AD400</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>21E3F367CF7124E9CF644091</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>4CE13532F8114FFEE8B8D809</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Three_Rivers_SittersUITests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>4F4BE7DDC81C8CBF17C31CB5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>5F0D30D042C93F53719C0F24</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>694A63CF3CCE72E5B2CA9476</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Three_Rivers_SittersTests.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+		<key>6B846AAE1A0E25D53C6D39EE</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>694A63CF3CCE72E5B2CA9476</string>
+				<string>4CE13532F8114FFEE8B8D809</string>
+				<string>D04104F41CD0BF53AF2E9431</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Frameworks</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>70E179D0061A9D36EC199879</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Three Rivers Sitters.release.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters.release.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>7533B111AC8BB016733BA33B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>77E53F416EF1D8124FD3C847</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers SittersTests/Pods-Three Rivers SittersTests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>7F9F3439AD2723DDCB612A03</key>
+		<dict>
+			<key>includeInIndex</key>
+			<string>1</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>text.xcconfig</string>
+			<key>name</key>
+			<string>Pods-Three Rivers Sitters.debug.xcconfig</string>
+			<key>path</key>
+			<string>Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters.debug.xcconfig</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>804BFDDE532CEF610FB91359</key>
+		<dict>
+			<key>children</key>
+			<array>
+				<string>7F9F3439AD2723DDCB612A03</string>
+				<string>70E179D0061A9D36EC199879</string>
+			</array>
+			<key>isa</key>
+			<string>PBXGroup</string>
+			<key>name</key>
+			<string>Pods</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>8E020E2A4C710BD0924C0A20</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>8EA15D292E438E9D1090488B</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>&#128230; Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>91EFEFA0625527F8C591E87A</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Copy Pods Resources</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers SittersUITests/Pods-Three Rivers SittersUITests-resources.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>98E1821F922475ED7C1063E5</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers SittersTests/Pods-Three Rivers SittersTests-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>ABFC1DB3A6158FD6EEC4EBD1</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Check Pods Manifest.lock</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
+if [[ $? != 0 ]] ; then
+    cat &lt;&lt; EOM
+error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
+EOM
+    exit 1
+fi
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>BA9295CE1740B0E5E37D6D1E</key>
+		<dict>
+			<key>buildActionMask</key>
+			<string>2147483647</string>
+			<key>files</key>
+			<array/>
+			<key>inputPaths</key>
+			<array/>
+			<key>isa</key>
+			<string>PBXShellScriptBuildPhase</string>
+			<key>name</key>
+			<string>[CP] Embed Pods Frameworks</string>
+			<key>outputPaths</key>
+			<array/>
+			<key>runOnlyForDeploymentPostprocessing</key>
+			<string>0</string>
+			<key>shellPath</key>
+			<string>/bin/sh</string>
+			<key>shellScript</key>
+			<string>"${SRCROOT}/Pods/Target Support Files/Pods-Three Rivers Sitters/Pods-Three Rivers Sitters-frameworks.sh"
+</string>
+			<key>showEnvVarsInLog</key>
+			<string>0</string>
+		</dict>
+		<key>D04104F41CD0BF53AF2E9431</key>
+		<dict>
+			<key>explicitFileType</key>
+			<string>wrapper.framework</string>
+			<key>includeInIndex</key>
+			<string>0</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>path</key>
+			<string>Pods_Three_Rivers_Sitters.framework</string>
+			<key>sourceTree</key>
+			<string>BUILT_PRODUCTS_DIR</string>
+		</dict>
+	</dict>
+	<key>rootObject</key>
+	<string>10F3732C1D98C7A5007AD400</string>
+</dict>
+</plist>
