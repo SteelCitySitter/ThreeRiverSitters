@@ -10,13 +10,18 @@ import UIKit
 import UIKit.UIGestureRecognizerSubclass
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 var pickGender = ["male", "female"]
 var pickCategory = ["parent", "care provider"]
 let genderPicker = UIPickerView()
 let categoryPicker = UIPickerView()
 
+
+
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
+    
+    var ref: FIRDatabaseReference!
 
     @IBOutlet weak var firstNameField: LoginTextField!
 
@@ -68,6 +73,42 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let category = categoryField.text
         let info = infoField.text
         
+        var userInfo = [String: String]()
+        
+        if category == "care provider" {
+        
+            userInfo = ["firstName":firstName!,
+                        "lastName":lastName!,
+                        "addressLine1":address1!,
+                        "addressLine2":address2!,
+                        "city":city!,
+                        "state":state!,
+                        "zipcode":zipcode!,
+                        "email":email,
+                        "birthday":birthday!,
+                        "gender":sex!,
+                        "phone":phone!,
+                        "category":info!,
+                        "status":"pending"]
+        }
+        
+        else if category == "parent" {
+            
+            userInfo = ["firstName":firstName!,
+                            "lastName":lastName!,
+                            "addressLine1":address1!,
+                            "addressLine2":address2!,
+                            "city":city!,
+                            "state":state!,
+                            "zipcode":zipcode!,
+                            "email":email,
+                            "birthday":birthday!,
+                            "gender":sex!,
+                            "phone":phone!,
+                            "children":info!,
+                            "status":"pending"]
+        }
+        
         FIRAuth.auth()?.createUser(withEmail: email, password: password) {(user, error) in
             if let error = error {
                 let failureAlert = UIAlertController(title: "Sign Up Failure", message: "Looks like you're already a user!", preferredStyle: UIAlertControllerStyle.alert)
@@ -80,10 +121,19 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
             }
             
             else {
-                let successAlert = UIAlertController(title: "Signed Up!", message: "You've successfully signed up! Touch to send verification email.", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "Verify", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                let successAlert = UIAlertController(title: "Signed Up!", message: "You've successfully signed up! You should receive a verification email soon.", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                     print("OK")
-                }
+                
+                    if (category == "care provider") {
+                        self.ref.child("caregivers").child((user?.uid)!).setValue(userInfo)
+                    }
+                    
+                    else if category == "parent" {
+                        self.ref.child("families").child((user?.uid)!).setValue(userInfo)
+                    }
+            }
+                
                 successAlert.addAction(okAction)
                 self.present(successAlert, animated: true, completion: nil)
                 let user = FIRAuth.auth()?.currentUser
@@ -146,6 +196,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         
         //FIRApp.configure()
         
+        ref = FIRDatabase.database().reference()
         
         genderPicker.delegate = self
         categoryPicker.delegate = self

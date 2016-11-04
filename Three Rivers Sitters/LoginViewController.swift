@@ -10,8 +10,11 @@ import Foundation
 import UIKit
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class LoginViewController: UIViewController {
+    
+    
     
     @IBOutlet weak var emailField: LoginTextField!
     
@@ -32,17 +35,55 @@ class LoginViewController: UIViewController {
             }
                 
             else {
-                let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                    print("OK")
+                
+                var category : String = ""
+                var status : String = ""
+                
+                var ref: FIRDatabaseReference!
+                
+                ref = FIRDatabase.database().reference()
+                
+                let userID = (FIRAuth.auth()?.currentUser?.uid)!
+                
+                ref.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                    
+                    let values = snapshot.value as? NSDictionary
+                    
+                    category = values?["children"] as! String
+                    
+                    status = values?["status"] as! String
+                    
+                    if(status=="pending") {
+                        let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
+                        let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                            print("OK")
+                        }
+                        midAlert.addAction(midAction)
+                        self.present(midAlert, animated: true, completion: nil)
+                    }
+                        
+                    else if status == "approved" {
+                        
+                        let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
+                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                            print("OK")
+                        }
+                        successAlert.addAction(okAction)
+                        self.present(successAlert, animated: true, completion: nil)
+                    }
+
+                })
+                
+                {(error) in
+                    print(error.localizedDescription)
                 }
-                successAlert.addAction(okAction)
-                self.present(successAlert, animated: true, completion: nil)
-            }
-            //self.signedIn(user!)
-        }
+              
+        }//outer else
+            
+        //self.signedIn(user!)
+        }//FIRAuth
         
-    }
+    }//didTapSignIn
     
     @IBAction func didRequestPasswordReset(_ sender: AnyObject) {
         let prompt = UIAlertController.init(title: nil, message: "Email:", preferredStyle: .alert)
@@ -62,6 +103,7 @@ class LoginViewController: UIViewController {
         prompt.addAction(okAction)
         self.present(prompt, animated: true, completion: nil);
     }
+    
     /*
     func signedIn(_ user: FIRUser?) {
             

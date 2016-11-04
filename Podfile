@@ -8,4 +8,5 @@ use_frameworks!
 target 'Three Rivers Sitters' do
   pod 'Firebase/Core’
   pod ‘Firebase/Auth’
+  pod 'Firebase/Database'
 end
