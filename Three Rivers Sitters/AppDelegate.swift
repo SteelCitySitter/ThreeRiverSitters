@@ -19,6 +19,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @nonobjc func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         FIRApp.configure()
+        FIRDatabase.database().persistenceEnabled = true
+        
+        let navigationBarAppearance = UINavigationBar.appearance()
+        
+        navigationBarAppearance.tintColor = UIColor.black
+        navigationBarAppearance.barTintColor = UIColor(red: 115.0/255.0, green: 227.0/255.0, blue: 142.0/255.0, alpha: 1.0)
+        
+        // change navigation item title color
+        navigationBarAppearance.titleTextAttributes = [NSForegroundColorAttributeName:UIColor.white]
+        
         return true
     }
     

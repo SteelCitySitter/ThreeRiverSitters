@@ -9,4 +9,7 @@ target 'Three Rivers Sitters' do
   pod 'Firebase/Core’
   pod ‘Firebase/Auth’
   pod 'Firebase/Database'
+  pod 'FirebaseUI/Storage', '~> 0.6'
+  pod 'Firebase/Core'
+  pod 'Firebase/Messaging'
 end

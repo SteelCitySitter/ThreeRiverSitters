@@ -19,6 +19,11 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>5</integer>
+		</dict>
 		<key>SwiftValidator.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -32,7 +37,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>03E6E56F8533C2E42C696D7CCAC42910</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>23BA9083ED0D2392A167A8AFA04427FA</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>771A84CF03C6BE5E4414C8218975F5ED</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -53,6 +68,11 @@
 			<true/>
 		</dict>
 		<key>EC4097EBD826656F6FD0E0EDC367AE51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F902C35275B2287EAE04DE3A3D3477B0</key>
 		<dict>
 			<key>primary</key>
 			<true/>

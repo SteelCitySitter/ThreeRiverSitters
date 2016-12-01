@@ -89,7 +89,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         "gender":sex!,
                         "phone":phone!,
                         "category":info!,
-                        "status":"pending"]
+                        "status":"pending",
+                        "availability": "no"]
         }
         
         else if category == "parent" {
@@ -191,8 +192,41 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         return newLength <= 5
     }
     
+    
+   /* override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?){
+        view.endEditing(true)
+        super.touchesBegan(touches, with: event)
+    } */
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        
+        firstNameField.resignFirstResponder()
+        lastNameField.resignFirstResponder()
+        genderField.resignFirstResponder()
+        phoneField.resignFirstResponder()
+        birthdayField.resignFirstResponder()
+        address1Field.resignFirstResponder()
+        address2Field.resignFirstResponder()
+        cityField.resignFirstResponder()
+        stateField.resignFirstResponder()
+        zipcodeField.resignFirstResponder()
+        categoryField.resignFirstResponder()
+        infoField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        categoryField.resignFirstResponder()
         
         //FIRApp.configure()
         

@@ -8,8 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		01394E95BE0DE8601D9D6E82 /* Pods_Three_Rivers_Sitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04104F41CD0BF53AF2E9431 /* Pods_Three_Rivers_Sitters.framework */; };
+		103AC2331DDFD7D2006145B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103AC2321DDFD7D2006145B5 /* User.swift */; };
+		1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443A1DDB837700B8AACF /* CustomCell.swift */; };
+		1061443F1DDBD8D800B8AACF /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */; };
+		106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */; };
 		109BDBFD1DB7F1CB008B3832 /* HomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */; };
 		109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F19081DA07CFB0078EB37 /* LoginTextField.swift */; };
+		10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */; };
+		10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9921DD9099300709236 /* CustomTabBarController.swift */; };
 		10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F373371D98C7A5007AD400 /* AppDelegate.swift */; };
 		10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */; };
 		10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3733C1D98C7A5007AD400 /* LoginViewController.swift */; };
@@ -42,8 +48,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		103AC2321DDFD7D2006145B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		105AD7F51DEE92720050BE32 /* Three Rivers Sitters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Three Rivers Sitters.entitlements"; sourceTree = "<group>"; };
+		106144381DD9249100B8AACF /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "Three Rivers Sitters/Pacifico.ttf"; sourceTree = "<group>"; };
+		1061443A1DDB837700B8AACF /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
+		1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
+		106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterDetailViewController.swift; sourceTree = "<group>"; };
 		109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTextField.swift; sourceTree = "<group>"; };
 		109F19081DA07CFB0078EB37 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterViewController.swift; sourceTree = "<group>"; };
+		10B1E9921DD9099300709236 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		10F373341D98C7A5007AD400 /* Three Rivers Sitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Three Rivers Sitters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F373371D98C7A5007AD400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Three_Rivers_Sitters.xcdatamodel; sourceTree = "<group>"; };
@@ -93,9 +107,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		103AC2311DDFD7AE006145B5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				103AC2321DDFD7D2006145B5 /* User.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		106144391DD9311100B8AACF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				106144381DD9249100B8AACF /* Pacifico.ttf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		10F3732B1D98C7A5007AD400 = {
 			isa = PBXGroup;
 			children = (
+				106144391DD9311100B8AACF /* Supporting Files */,
 				10F373361D98C7A5007AD400 /* Three Rivers Sitters */,
 				10F373501D98C7A5007AD400 /* Three Rivers SittersTests */,
 				10F3735B1D98C7A5007AD400 /* Three Rivers SittersUITests */,
@@ -118,9 +149,15 @@
 		10F373361D98C7A5007AD400 /* Three Rivers Sitters */ = {
 			isa = PBXGroup;
 			children = (
+				105AD7F51DEE92720050BE32 /* Three Rivers Sitters.entitlements */,
+				103AC2311DDFD7AE006145B5 /* Model */,
 				10F373371D98C7A5007AD400 /* AppDelegate.swift */,
+				1061443A1DDB837700B8AACF /* CustomCell.swift */,
 				10F3733C1D98C7A5007AD400 /* LoginViewController.swift */,
 				10F3733E1D98C7A5007AD400 /* SignupViewController.swift */,
+				10B1E9921DD9099300709236 /* CustomTabBarController.swift */,
+				10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */,
+				106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */,
 				109F19081DA07CFB0078EB37 /* LoginTextField.swift */,
 				109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */,
 				10F373401D98C7A5007AD400 /* Main.storyboard */,
@@ -129,6 +166,7 @@
 				10F373481D98C7A5007AD400 /* Info.plist */,
 				10F3736A1D98C832007AD400 /* GoogleService-Info.plist */,
 				10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */,
+				1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */,
 			);
 			path = "Three Rivers Sitters";
 			sourceTree = "<group>";
@@ -253,6 +291,14 @@
 						DevelopmentTeam = F93KH9X25B;
 						DevelopmentTeamName = "Shrinath Badrinarayanan";
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 0;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
+							};
+						};
 					};
 					10F3734C1D98C7A5007AD400 = {
 						CreatedOnToolsVersion = 8.0;
@@ -510,7 +556,13 @@
 			files = (
 				10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */,
 				109BDBFD1DB7F1CB008B3832 /* HomeTextField.swift in Sources */,
+				10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */,
+				106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */,
+				10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */,
+				1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */,
+				1061443F1DDBD8D800B8AACF /* PopUpViewController.swift in Sources */,
 				10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */,
+				103AC2331DDFD7D2006145B5 /* User.swift in Sources */,
 				10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */,
 				10F3733F1D98C7A5007AD400 /* SignupViewController.swift in Sources */,
 				109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */,

@@ -11,9 +11,14 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseMessaging
+import FirebaseCore
+import FirebaseStorage
+import FirebaseStorageUI
+import SDWebImage
+import UserNotifications
 
-class LoginViewController: UIViewController {
-    
+class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBOutlet weak var emailField: LoginTextField!
@@ -45,11 +50,11 @@ class LoginViewController: UIViewController {
                 
                 let userID = (FIRAuth.auth()?.currentUser?.uid)!
                 
-                ref.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                ref.child("caregivers").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
                     
                     let values = snapshot.value as? NSDictionary
                     
-                    category = values?["children"] as! String
+                    category = values?["category"] as! String
                     
                     status = values?["status"] as! String
                     
@@ -70,6 +75,7 @@ class LoginViewController: UIViewController {
                         }
                         successAlert.addAction(okAction)
                         self.present(successAlert, animated: true, completion: nil)
+                        self.performSegue(withIdentifier: "loginToList", sender: nil)
                     }
 
                 })
@@ -104,6 +110,14 @@ class LoginViewController: UIViewController {
         self.present(prompt, animated: true, completion: nil);
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        self.view.endEditing(true)
+        
+        return true
+        
+    }
+    
     /*
     func signedIn(_ user: FIRUser?) {
             
@@ -119,6 +133,27 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         FIRApp.configure()
+        /*
+        if #available(iOS 10.0, *) {
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            // For iOS 10 data message (sent via FCM)
+            FIRMessaging.messaging().remoteMessageDelegate = self
+            
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        
+        application.registerForRemoteNotifications()
+        */
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
