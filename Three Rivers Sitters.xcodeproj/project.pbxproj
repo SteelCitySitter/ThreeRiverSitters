@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		01394E95BE0DE8601D9D6E82 /* Pods_Three_Rivers_Sitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04104F41CD0BF53AF2E9431 /* Pods_Three_Rivers_Sitters.framework */; };
 		103AC2331DDFD7D2006145B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103AC2321DDFD7D2006145B5 /* User.swift */; };
+		105AD7F71DF11B420050BE32 /* BabysitterHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7F61DF11B420050BE32 /* BabysitterHomeViewController.swift */; };
+		105AD7F91DF120240050BE32 /* BabysitterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */; };
+		105AD7FB1DF297E10050BE32 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7FA1DF297E10050BE32 /* RatingControl.swift */; };
 		1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443A1DDB837700B8AACF /* CustomCell.swift */; };
 		1061443F1DDBD8D800B8AACF /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */; };
 		106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */; };
@@ -50,6 +53,9 @@
 /* Begin PBXFileReference section */
 		103AC2321DDFD7D2006145B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		105AD7F51DEE92720050BE32 /* Three Rivers Sitters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Three Rivers Sitters.entitlements"; sourceTree = "<group>"; };
+		105AD7F61DF11B420050BE32 /* BabysitterHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterHomeViewController.swift; sourceTree = "<group>"; };
+		105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterProfileViewController.swift; sourceTree = "<group>"; };
+		105AD7FA1DF297E10050BE32 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		106144381DD9249100B8AACF /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "Three Rivers Sitters/Pacifico.ttf"; sourceTree = "<group>"; };
 		1061443A1DDB837700B8AACF /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
@@ -158,6 +164,9 @@
 				10B1E9921DD9099300709236 /* CustomTabBarController.swift */,
 				10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */,
 				106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */,
+				105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */,
+				105AD7FA1DF297E10050BE32 /* RatingControl.swift */,
+				105AD7F61DF11B420050BE32 /* BabysitterHomeViewController.swift */,
 				109F19081DA07CFB0078EB37 /* LoginTextField.swift */,
 				109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */,
 				10F373401D98C7A5007AD400 /* Main.storyboard */,
@@ -555,6 +564,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */,
+				105AD7F91DF120240050BE32 /* BabysitterProfileViewController.swift in Sources */,
 				109BDBFD1DB7F1CB008B3832 /* HomeTextField.swift in Sources */,
 				10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */,
 				106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */,
@@ -564,7 +574,9 @@
 				10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */,
 				103AC2331DDFD7D2006145B5 /* User.swift in Sources */,
 				10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */,
+				105AD7F71DF11B420050BE32 /* BabysitterHomeViewController.swift in Sources */,
 				10F3733F1D98C7A5007AD400 /* SignupViewController.swift in Sources */,
+				105AD7FB1DF297E10050BE32 /* RatingControl.swift in Sources */,
 				109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

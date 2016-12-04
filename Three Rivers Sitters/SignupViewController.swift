@@ -17,8 +17,6 @@ var pickCategory = ["parent", "care provider"]
 let genderPicker = UIPickerView()
 let categoryPicker = UIPickerView()
 
-
-
 class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var ref: FIRDatabaseReference!

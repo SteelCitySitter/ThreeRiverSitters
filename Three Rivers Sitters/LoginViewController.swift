@@ -49,7 +49,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 ref = FIRDatabase.database().reference()
                 
                 let userID = (FIRAuth.auth()?.currentUser?.uid)!
-                
+                    
                 ref.child("caregivers").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
                     
                     let values = snapshot.value as? NSDictionary
@@ -68,14 +68,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     }
                         
                     else if status == "approved" {
-                        
+                        print("This is the success branch for babysitter - \(userID)")
                         let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
                         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
                             print("OK")
                         }
                         successAlert.addAction(okAction)
                         self.present(successAlert, animated: true, completion: nil)
-                        self.performSegue(withIdentifier: "loginToList", sender: nil)
+                        self.performSegue(withIdentifier: "babysitterHome", sender: nil)
                     }
 
                 })
@@ -83,10 +83,45 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 {(error) in
                     print(error.localizedDescription)
                 }
+            
+                /*
+                ref.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                        
+                        let values = snapshot.value as? NSDictionary
+                        
+                        //category = values?["category"] as! String
+                        
+                        status = values?["status"] as! String
+                        
+                        if(status=="pending") {
+                            let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
+                            let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                print("OK")
+                            }
+                            midAlert.addAction(midAction)
+                            self.present(midAlert, animated: true, completion: nil)
+                        }
+                            
+                        else if status == "approved" {
+                            
+                            let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
+                            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                print("OK")
+                            }
+                            successAlert.addAction(okAction)
+                            self.present(successAlert, animated: true, completion: nil)
+                            self.performSegue(withIdentifier: "babusitterHome", sender: nil)
+                        }
+                        
+                    })
+                        
+                    {(error) in
+                        print(error.localizedDescription)
+                    }
+                */
               
         }//outer else
             
-        //self.signedIn(user!)
         }//FIRAuth
         
     }//didTapSignIn
