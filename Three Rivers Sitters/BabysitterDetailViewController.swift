@@ -27,23 +27,34 @@ class BabysitterDetailViewController: UIViewController {
     @IBOutlet weak var address2Label: UILabel!
     
     var currentUser: User!
+    var fullName: String!
     var babysitterName: String!
     var babysitterID: String!
     var addressLine1: String!
     var addressLine2: String!
     
+    var ref: FIRDatabaseReference!
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        var ref: FIRDatabaseReference!
         
         ref = FIRDatabase.database().reference()
         
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
             self.currentUser = User(authData: user)
-            //print("Current user is: \(self.currentUser.uid)")
+            print("Current user is: \(self.currentUser.uid)")
+            
+            self.ref.child("families").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {(snap) in
+                
+                let vals = snap.value as? NSDictionary
+                self.fullName = vals?["firstName"] as? String ?? ""
+                self.fullName = self.fullName + " "
+                self.fullName = self.fullName + (vals?["lastName"] as? String ?? "")
+                
+            })
+
         }
         
         ref.child("caregivers").child(babysitterID!).observeSingleEvent(of: .value, with: { (snapshot) in
@@ -86,18 +97,23 @@ class BabysitterDetailViewController: UIViewController {
     }
     
 
-    @IBAction func bookNowTapped(_ sender: Any) {
+    @IBAction func bookNowTapped(_ sender: UIButton) {
         
-        var bookingInfo = [String: Double]()
+        var bookingInfo: [String: String] = [:]
         
-        print("Current user is: \(self.babysitterID)")
+        //print("Current user is: \(self.babysitterID)")
         
-        var ref: FIRDatabaseReference!
+        bookingInfo[currentUser.uid] = self.fullName
         
-        ref = FIRDatabase.database().reference()
-        bookingInfo = [currentUser.uid: NSDate().timeIntervalSince1970]
+        //self.ref.child("pending-requests").updateChildValues([self.babysitterID: ""])
         
-        ref.child("pending-requests").child((self.babysitterID)!).setValue(bookingInfo)
+      //self.ref.child("pending-requests").child(self.babysitterID).updateChildValues(bookingInfo)
+        
+        self.ref.child("pending-requests").setValue([self.babysitterID: ""])
+        
+        self.ref.child("pending-requests").child((self.babysitterID)!).updateChildValues(bookingInfo)
+        
+        //self.ref.child("pending-requests").child((self.babysitterID)!).setValue(bookingInfo)
         
         let successAlert = UIAlertController(title: "Booking Info", message: "Booking request sent to babysitter. You should receive a confirmation if the babysitter accepts.", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -106,16 +122,6 @@ class BabysitterDetailViewController: UIViewController {
         
         successAlert.addAction(okAction)
         self.present(successAlert, animated: true, completion: nil)
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
-
-}
 
 }

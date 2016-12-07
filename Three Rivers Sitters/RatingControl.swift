@@ -1,15 +1,12 @@
 //
 //  RatingControl.swift
-//  FoodTracker
 //
-//  Created by Vikesh Inbasekahran on 10/26/16.
+//  Created by Vikesh Inbasekharan on 10/26/16.
 //
-
 
 import UIKit
 import Firebase
 import FirebaseAuth
-
 
 class RatingControl: UIView {
     // MARK: Properties

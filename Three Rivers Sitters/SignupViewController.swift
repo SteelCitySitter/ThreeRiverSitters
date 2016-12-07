@@ -51,7 +51,13 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     @IBOutlet weak var infoField: LoginTextField!
     
-
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        
+        self.performSegue(withIdentifier: "backHome", sender: sender)
+        
+    }
+    
     @IBAction func signUpTapped(_ sender: UIButton) {
         
         //validator.validate(self)
@@ -88,9 +94,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         "phone":phone!,
                         "category":info!,
                         "status":"pending",
-                        "availability": "no"]
+                        "availability": "no",
+                        "rating":"0"]
         }
-        
+         
         else if category == "parent" {
             
             userInfo = ["firstName":firstName!,
@@ -105,7 +112,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                             "gender":sex!,
                             "phone":phone!,
                             "children":info!,
-                            "status":"pending"]
+                            "status":"pending",
+                            "rating":"0"]
         }
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password) {(user, error) in
@@ -126,10 +134,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                 
                     if (category == "care provider") {
                         self.ref.child("caregivers").child((user?.uid)!).setValue(userInfo)
+                        self.ref.child("category-list").child((user?.uid)!).setValue("caregiver")
                     }
                     
                     else if category == "parent" {
                         self.ref.child("families").child((user?.uid)!).setValue(userInfo)
+                        self.ref.child("category-list").child((user?.uid)!).setValue("family")
                     }
             }
                 
@@ -145,9 +155,12 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                     }
                 }
                 
+                
             }
         
-       }
+       }//FIRAuth
+        
+       
         
     }
     
@@ -161,7 +174,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         datePickerView.addTarget(self, action: #selector(SignUpViewController.datePickerValueChanged), for: UIControlEvents.valueChanged)
         
     }
-    
     
     func datePickerValueChanged(_ sender: UIDatePicker) {
         /*
@@ -250,6 +262,8 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         //validator.registerField(phoneField, rules: PhoneNumberRule)
         
     }
+    
+    
     /*
     func validationSuccessful() {
         let alertController = UIAlertController(title: "Input validation", message: "Invalid input fields", preferredStyle: UIAlertControllerStyle.alert)

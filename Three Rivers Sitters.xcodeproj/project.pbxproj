@@ -9,16 +9,18 @@
 /* Begin PBXBuildFile section */
 		01394E95BE0DE8601D9D6E82 /* Pods_Three_Rivers_Sitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04104F41CD0BF53AF2E9431 /* Pods_Three_Rivers_Sitters.framework */; };
 		103AC2331DDFD7D2006145B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103AC2321DDFD7D2006145B5 /* User.swift */; };
+		1049EAB41DF515E7002BF4AF /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */; };
+		1049EAB61DF6292D002BF4AF /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */; };
 		105AD7F71DF11B420050BE32 /* BabysitterHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7F61DF11B420050BE32 /* BabysitterHomeViewController.swift */; };
 		105AD7F91DF120240050BE32 /* BabysitterProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */; };
 		105AD7FB1DF297E10050BE32 /* RatingControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 105AD7FA1DF297E10050BE32 /* RatingControl.swift */; };
 		1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443A1DDB837700B8AACF /* CustomCell.swift */; };
-		1061443F1DDBD8D800B8AACF /* PopUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */; };
 		106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */; };
 		109BDBFD1DB7F1CB008B3832 /* HomeTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */; };
 		109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 109F19081DA07CFB0078EB37 /* LoginTextField.swift */; };
 		10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */; };
 		10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9921DD9099300709236 /* CustomTabBarController.swift */; };
+		10BB3CD21DF760270045B593 /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */; };
 		10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F373371D98C7A5007AD400 /* AppDelegate.swift */; };
 		10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */; };
 		10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3733C1D98C7A5007AD400 /* LoginViewController.swift */; };
@@ -52,18 +54,20 @@
 
 /* Begin PBXFileReference section */
 		103AC2321DDFD7D2006145B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
+		1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
 		105AD7F51DEE92720050BE32 /* Three Rivers Sitters.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Three Rivers Sitters.entitlements"; sourceTree = "<group>"; };
 		105AD7F61DF11B420050BE32 /* BabysitterHomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterHomeViewController.swift; sourceTree = "<group>"; };
 		105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterProfileViewController.swift; sourceTree = "<group>"; };
 		105AD7FA1DF297E10050BE32 /* RatingControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingControl.swift; sourceTree = "<group>"; };
 		106144381DD9249100B8AACF /* Pacifico.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Pacifico.ttf; path = "Three Rivers Sitters/Pacifico.ttf"; sourceTree = "<group>"; };
 		1061443A1DDB837700B8AACF /* CustomCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
-		1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopUpViewController.swift; sourceTree = "<group>"; };
 		106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterDetailViewController.swift; sourceTree = "<group>"; };
 		109BDBFC1DB7F1CA008B3832 /* HomeTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTextField.swift; sourceTree = "<group>"; };
 		109F19081DA07CFB0078EB37 /* LoginTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterViewController.swift; sourceTree = "<group>"; };
 		10B1E9921DD9099300709236 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
+		10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
 		10F373341D98C7A5007AD400 /* Three Rivers Sitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Three Rivers Sitters.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F373371D98C7A5007AD400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Three_Rivers_Sitters.xcdatamodel; sourceTree = "<group>"; };
@@ -162,6 +166,9 @@
 				10F3733C1D98C7A5007AD400 /* LoginViewController.swift */,
 				10F3733E1D98C7A5007AD400 /* SignupViewController.swift */,
 				10B1E9921DD9099300709236 /* CustomTabBarController.swift */,
+				1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */,
+				10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */,
+				1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */,
 				10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */,
 				106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */,
 				105AD7F81DF120240050BE32 /* BabysitterProfileViewController.swift */,
@@ -175,7 +182,6 @@
 				10F373481D98C7A5007AD400 /* Info.plist */,
 				10F3736A1D98C832007AD400 /* GoogleService-Info.plist */,
 				10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */,
-				1061443E1DDBD8D800B8AACF /* PopUpViewController.swift */,
 			);
 			path = "Three Rivers Sitters";
 			sourceTree = "<group>";
@@ -568,9 +574,10 @@
 				109BDBFD1DB7F1CB008B3832 /* HomeTextField.swift in Sources */,
 				10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */,
 				106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */,
+				10BB3CD21DF760270045B593 /* RequestDetailViewController.swift in Sources */,
 				10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */,
+				1049EAB41DF515E7002BF4AF /* FamilyViewController.swift in Sources */,
 				1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */,
-				1061443F1DDBD8D800B8AACF /* PopUpViewController.swift in Sources */,
 				10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */,
 				103AC2331DDFD7D2006145B5 /* User.swift in Sources */,
 				10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */,
@@ -578,6 +585,7 @@
 				10F3733F1D98C7A5007AD400 /* SignupViewController.swift in Sources */,
 				105AD7FB1DF297E10050BE32 /* RatingControl.swift in Sources */,
 				109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */,
+				1049EAB61DF6292D002BF4AF /* RequestTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

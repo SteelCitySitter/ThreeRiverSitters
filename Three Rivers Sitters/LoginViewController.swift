@@ -43,88 +43,113 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 
                 var category : String = ""
                 var status : String = ""
+                var userCategory : String = ""
                 
                 var ref: FIRDatabaseReference!
+                var userRef: FIRDatabaseReference!
                 
                 ref = FIRDatabase.database().reference()
+                userRef = FIRDatabase.database().reference()
                 
                 let userID = (FIRAuth.auth()?.currentUser?.uid)!
-                    
-                ref.child("caregivers").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
-                    
-                    let values = snapshot.value as? NSDictionary
-                    
-                    category = values?["category"] as! String
-                    
-                    status = values?["status"] as! String
-                    
-                    if(status=="pending") {
-                        let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
-                        let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                            print("OK")
-                        }
-                        midAlert.addAction(midAction)
-                        self.present(midAlert, animated: true, completion: nil)
-                    }
-                        
-                    else if status == "approved" {
-                        print("This is the success branch for babysitter - \(userID)")
-                        let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
-                        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                            print("OK")
-                        }
-                        successAlert.addAction(okAction)
-                        self.present(successAlert, animated: true, completion: nil)
-                        self.performSegue(withIdentifier: "babysitterHome", sender: nil)
-                    }
-
-                })
                 
-                {(error) in
-                    print(error.localizedDescription)
-                }
-            
-                /*
-                ref.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                ref.child("category-list").observeSingleEvent(of: .value, with: {(snap) in
+                    
+                    let vals = snap.value as? NSDictionary
+                    
+                    userCategory = vals?[userID] as! String
+                    
+                    if(userCategory == "caregiver") {
                         
-                        let values = snapshot.value as? NSDictionary
-                        
-                        //category = values?["category"] as! String
-                        
-                        status = values?["status"] as! String
-                        
-                        if(status=="pending") {
-                            let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
-                            let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                                print("OK")
-                            }
-                            midAlert.addAction(midAction)
-                            self.present(midAlert, animated: true, completion: nil)
-                        }
+                      userRef.child("caregivers").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
                             
-                        else if status == "approved" {
+                            let values = snapshot.value as? NSDictionary
                             
-                            let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
-                            let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
-                                print("OK")
+                            category = values?["category"] as! String
+                            
+                            status = values?["status"] as! String
+                            
+                            if(status=="pending") {
+                                let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
+                                let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                    print("OK")
+                                }
+                                midAlert.addAction(midAction)
+                                self.present(midAlert, animated: true, completion: nil)
                             }
-                            successAlert.addAction(okAction)
-                            self.present(successAlert, animated: true, completion: nil)
-                            self.performSegue(withIdentifier: "babusitterHome", sender: nil)
-                        }
-                        
-                    })
-                        
-                    {(error) in
-                        print(error.localizedDescription)
+                                
+                            else if status == "approved" {
+                                print("This is the success branch for babysitter - \(userID)")
+                                let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
+                                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                    print("OK")
+                                }
+                                successAlert.addAction(okAction)
+                                //self.present(successAlert, animated: true, completion: nil)
+                                self.performSegue(withIdentifier: "babysitterHome", sender: sender)
+                            }
+                            
+                        })
                     }
-                */
-              
-        }//outer else
+                    
+                    else if(userCategory == "family") {
+                        
+                        userRef.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                            
+                            let values = snapshot.value as? NSDictionary
+                            
+                            //category = values?["category"] as! String
+                            
+                            status = values?["status"] as! String
+                            
+                            if(status=="pending") {
+                                let midAlert = UIAlertController(title: "Pending approval", message: "Your sign up is pending administrator approval", preferredStyle: UIAlertControllerStyle.alert)
+                                let midAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                    print("OK")
+                                }
+                                midAlert.addAction(midAction)
+                                self.present(midAlert, animated: true, completion: nil)
+                            }
+                                
+                            else if status == "approved" {
+                                
+                                let successAlert = UIAlertController(title: "Login success!", message: "Your login is successful", preferredStyle: UIAlertControllerStyle.alert)
+                                let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
+                                    print("OK")
+                                }
+                                successAlert.addAction(okAction)
+                                //self.present(successAlert, animated: true, completion: nil)
+                                self.performSegue(withIdentifier: "loginToList", sender: sender)
+                            }
+                            
+                        })
+                        
+                    }
+                    
+                }) //ref cat-list
+                
+                
+                        
+                
+           }//outer else
             
         }//FIRAuth
         
     }//didTapSignIn
+    
+    @IBAction func didTapSignUp(_ sender: UIButton) {
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = "back"
+        
+        UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.white, NSFontAttributeName: UIFont(name: "Hoefler Text", size: 20)!]
+        
+        backItem.setTitleTextAttributes([NSForegroundColorAttributeName:UIColor.white], for: UIControlState.normal)
+        
+        navigationItem.backBarButtonItem = backItem
+        
+        self.performSegue(withIdentifier: "signUp", sender: sender)
+    }
     
     @IBAction func didRequestPasswordReset(_ sender: AnyObject) {
         let prompt = UIAlertController.init(title: nil, message: "Email:", preferredStyle: .alert)

@@ -1,8 +1,8 @@
 //
-//  BabysitterProfileViewController.swift
+//  FamilyViewController.swift
 //  Three Rivers Sitters
 //
-//  Created by Shrinath on 12/1/16.
+//  Created by Shrinath on 12/4/16.
 //  Copyright © 2016 Three Rivers Sitters. All rights reserved.
 //
 
@@ -10,20 +10,15 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class BabysitterProfileViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     //@IBOutlet weak var editbutton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var availabilitySwitch: UISwitch!
-    
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var status: UITextField!
     @IBOutlet weak var zipCode: UITextField!
-    @IBOutlet weak var state: UITextField!
     
-    @IBOutlet weak var city: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -37,8 +32,6 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     var ref: FIRDatabaseReference!
     var currentUser: User!
     
-    //var careGiverIDRatingScreen: String = "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,7 +43,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
             self.ImagePicker.delegate = self
             self.ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
             
-            self.ref.child("caregivers").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {snapshot in
+            self.ref.child("families").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {snapshot in
                 
                 let profile1 = snapshot.value as? NSDictionary
                 let name = profile1?["firstName"] as? String
@@ -91,7 +84,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
             spaceRef.data(withMaxSize: 1 * 1080 * 1080) { (data, error) -> Void in
                 if (error != nil) {
                     // Uh-oh, an error occurred!
-                    let alert = UIAlertController(title: "Error in downloading image", message: "message", preferredStyle: UIAlertControllerStyle.alert)
+                    let alert = UIAlertController(title: "Set your image", message: "Touch the placeholder image to set your profile image", preferredStyle: UIAlertControllerStyle.alert)
                     alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
@@ -102,7 +95,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
                     self.profilePicture.image = UIImage(data: data!)
                 }
             }
-
+            
             
         }
         
@@ -111,7 +104,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     }
     
     @IBAction func editButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Profile Fields are now editable", message: "click Ok to continue", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Edit profile", message: "Touch each text field to edit it", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         self.firstName.isUserInteractionEnabled = true
@@ -138,8 +131,8 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
                         self.ref.child("caregivers").child(userKey).child("phone").setValue(self.phone.text!)
                         self.ref.child("caregivers").child(userKey).child("address").setValue(self.addressField.text!)
                         self.ref.child("caregivers").child(userKey).child("zipcode").setValue(self.zipCode.text!)
-                    //self.ref.child("caregivers").child(userKey).child("city").setValue(self.city.text!)
-                      //  self.ref.child("caregivers").child(userKey).child("state").setValue(self.state.text!)
+                        //self.ref.child("caregivers").child(userKey).child("city").setValue(self.city.text!)
+                        //  self.ref.child("caregivers").child(userKey).child("state").setValue(self.state.text!)
                         
                     }
                 }
@@ -164,33 +157,18 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
         self.view.endEditing(true)
     }
     
-    
-    @IBAction func switchChanged(sender: UISwitch) {
-        print("State changed!")
-        
-        let fullName: String = self.firstName.text! + " " + self.lastName.text!
-        
-        if sender.isOn {
-            
-            let newRef = self.ref.child("online-caregivers")
-            newRef.updateChildValues([currentUser.uid: fullName])
-        }
-        
-        else {
-           self.ref.child("online-caregivers").child(currentUser.uid).setValue(nil)
-        }
-    }
-    
     @IBAction func profileSelect(_ sender: UIButton) {
+        //  let ImagePicker = UIImagePickerController()
+        
+        //    ImagePicker.delegate = self
         ImagePicker.allowsEditing = false
         ImagePicker.sourceType = .photoLibrary
         
         self.present(ImagePicker, animated: true, completion: nil)
         
     }
-    @nonobjc func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject])
-    {
-        //  let profileView = info[UIImagePickerControllerOriginalImage] as! UIImage
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         print("picking image")
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
             self.profilePicture.contentMode = .scaleAspectFit
@@ -200,9 +178,23 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
         self.dismiss(animated: false, completion: nil)
     }
     
-    @nonobjc func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+    
+    /*
+    @nonobjc func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String: AnyObject])
+    {
+        //  let profileView = info[UIImagePickerControllerOriginalImage] as! UIImage
+        
+    }
+ 
+    
+    @nonobjc func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+        
+    }
+    */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -210,3 +202,4 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     
     
 }
+
