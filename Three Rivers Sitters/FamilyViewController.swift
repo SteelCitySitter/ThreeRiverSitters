@@ -18,7 +18,6 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var status: UITextField!
     @IBOutlet weak var zipCode: UITextField!
-    
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -41,7 +40,7 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
             self.currentUser = User(authData: user)
             
             self.ImagePicker.delegate = self
-            self.ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
+            self.ref =  FIRDatabase.database().reference()
             
             self.ref.child("families").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {snapshot in
                 
@@ -85,7 +84,7 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
                 if (error != nil) {
                     // Uh-oh, an error occurred!
                     let alert = UIAlertController(title: "Set your image", message: "Touch the placeholder image to set your profile image", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
                     
@@ -120,26 +119,24 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     @IBAction func saveButton(_ sender: Any) {
         
-        self.ref.child("caregivers").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("families").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
                     let userKey = child.key
                     if(userKey == self.currentUser.uid){
-                        self.ref.child("caregivers").child(userKey).child("firstName").setValue(self.firstName.text!)
-                        self.ref.child("caregivers").child(userKey).child("lastName").setValue(self.lastName.text!)
-                        self.ref.child("caregivers").child(userKey).child("email").setValue(self.email.text!)
-                        self.ref.child("caregivers").child(userKey).child("phone").setValue(self.phone.text!)
-                        self.ref.child("caregivers").child(userKey).child("address").setValue(self.addressField.text!)
-                        self.ref.child("caregivers").child(userKey).child("zipcode").setValue(self.zipCode.text!)
-                        //self.ref.child("caregivers").child(userKey).child("city").setValue(self.city.text!)
-                        //  self.ref.child("caregivers").child(userKey).child("state").setValue(self.state.text!)
+                        self.ref.child("families").child(userKey).child("firstName").setValue(self.firstName.text!)
+                        self.ref.child("families").child(userKey).child("lastName").setValue(self.lastName.text!)
+                        self.ref.child("families").child(userKey).child("email").setValue(self.email.text!)
+                        self.ref.child("families").child(userKey).child("phone").setValue(self.phone.text!)
+                        self.ref.child("families").child(userKey).child("address").setValue(self.addressField.text!)
+                        self.ref.child("families").child(userKey).child("zipcode").setValue(self.zipCode.text!)
                         
                     }
                 }
             }
         })
         
-        let alert = UIAlertController(title: "Your information is now updated!", message: "click Ok to continue", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Your information is now updated!", message: "Click OK to continue", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         saveButton.isHidden = true

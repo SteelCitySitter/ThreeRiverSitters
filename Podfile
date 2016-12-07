@@ -12,4 +12,5 @@ target 'Three Rivers Sitters' do
   pod 'FirebaseUI/Storage', '~> 0.6'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
+  pod 'OneSignal'
 end

@@ -11,6 +11,7 @@ import UIKit.UIGestureRecognizerSubclass
 import Firebase
 import FirebaseAuth
 import FirebaseDatabase
+import OneSignal
 
 var pickGender = ["male", "female"]
 var pickCategory = ["parent", "care provider"]
@@ -94,8 +95,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         "phone":phone!,
                         "category":info!,
                         "status":"pending",
-                        "availability": "no",
-                        "rating":"0"]
+                        "availability": "no"]
         }
          
         else if category == "parent" {
@@ -112,9 +112,10 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                             "gender":sex!,
                             "phone":phone!,
                             "children":info!,
-                            "status":"pending",
-                            "rating":"0"]
+                            "status":"pending"]
         }
+        
+        
         
         FIRAuth.auth()?.createUser(withEmail: email, password: password) {(user, error) in
             if let error = error {
@@ -135,13 +136,31 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                     if (category == "care provider") {
                         self.ref.child("caregivers").child((user?.uid)!).setValue(userInfo)
                         self.ref.child("category-list").child((user?.uid)!).setValue("caregiver")
+                        OneSignal.idsAvailable({ (pushID, pushToken) in
+                            print("UserId:%@", pushID!)
+                            if (pushToken != nil) {
+                                print("pushToken:%@", pushToken!)
+                            }
+                    self.ref.child("caregivers").child((user?.uid)!).updateChildValues(["pushID": pushID!])
+                            
+                        self.ref.child("caregivers").child((user?.uid)!).updateChildValues(["rating": "0"])
+                        })
                     }
                     
                     else if category == "parent" {
                         self.ref.child("families").child((user?.uid)!).setValue(userInfo)
                         self.ref.child("category-list").child((user?.uid)!).setValue("family")
-                    }
-            }
+                        OneSignal.idsAvailable({ (pushID, pushToken) in
+                            print("UserId:%@", pushID!)
+                            if (pushToken != nil) {
+                                print("pushToken:%@", pushToken!)
+                            }
+                            self.ref.child("families").child((user?.uid)!).updateChildValues(["pushID": pushID!])
+                            
+                            self.ref.child("families").child((user?.uid)!).updateChildValues(["rating": "0"])
+                        })
+                    }//else category parent
+                }//outer else
                 
                 successAlert.addAction(okAction)
                 self.present(successAlert, animated: true, completion: nil)

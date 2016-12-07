@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     if(userCategory == "caregiver") {
                         
-                      userRef.child("caregivers").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                      userRef.child("caregivers").child(userID).observe(.value, with: {(snapshot) in
                             
                             let values = snapshot.value as? NSDictionary
                             
@@ -94,7 +94,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                     
                     else if(userCategory == "family") {
                         
-                        userRef.child("families").child(userID).observeSingleEvent(of: .value, with: {(snapshot) in
+                        userRef.child("families").child(userID).observe(.value, with: {(snapshot) in
                             
                             let values = snapshot.value as? NSDictionary
                             
@@ -192,7 +192,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     */
     override func viewDidLoad() {
         super.viewDidLoad()
-        FIRApp.configure()
+        //FIRApp.configure()
         /*
         if #available(iOS 10.0, *) {
             let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]

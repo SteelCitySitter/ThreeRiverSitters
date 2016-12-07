@@ -14,6 +14,7 @@ import FirebaseStorage
 import FirebaseStorageUI
 import SDWebImage
 import FirebaseMessaging
+import OneSignal
 
 class BabysitterDetailViewController: UIViewController {
     
@@ -66,7 +67,7 @@ class BabysitterDetailViewController: UIViewController {
             
             let storage = FIRStorage.storage().reference(forURL: "gs://three-rivers-sitters.appspot.com")
             
-            let imageFile = "babysitters/" + self.babysitterID + ".png"
+            let imageFile = "babysitters/" + self.babysitterID + ".jpg"
             
             let imageRef = storage.child(imageFile)
             
@@ -115,6 +116,8 @@ class BabysitterDetailViewController: UIViewController {
         
         //self.ref.child("pending-requests").child((self.babysitterID)!).setValue(bookingInfo)
         
+        OneSignal.postNotification(["contents": ["en": "New notification"], "include_player_ids": ["a98cdbcb-9259-48c7-9ff2-3f742e389ec2"]])
+        
         let successAlert = UIAlertController(title: "Booking Info", message: "Booking request sent to babysitter. You should receive a confirmation if the babysitter accepts.", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
             print("OK")
@@ -122,6 +125,8 @@ class BabysitterDetailViewController: UIViewController {
         
         successAlert.addAction(okAction)
         self.present(successAlert, animated: true, completion: nil)
+        
+        
     }
 
 }

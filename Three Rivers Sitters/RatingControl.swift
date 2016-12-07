@@ -38,14 +38,17 @@ class RatingControl: UIView {
                 var ref: FIRDatabaseReference! = nil
                 ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
                 // Fetching the current rating from the babysitter schema to calculate the final rating
-                ref.child("caregivers").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {snapshot in
+                ref.child("caregivers").child(self.currentUser.uid).observe(.value, with: {snapshot in
                     
                     let profile1 = snapshot.value as? NSDictionary
-                    let totalRating = profile1?["rating"] as? Int
+
                     
-                    let bnd: Int = totalRating! + 1
+                    print(profile1?["rating"] as Any!)
+                    //let totalRating = CInt(profile1?["rating"] as Any)
                     
-                    for _ in 0..<totalRating! {
+                    let bnd: Int = Int(profile1?["rating"] as Any! as! String)!
+                    
+                    for _ in 0..<bnd {
                         let button = UIButton()
                         button.isUserInteractionEnabled = false
                         button.setImage(filledStarImage, for: UIControlState())
@@ -57,7 +60,7 @@ class RatingControl: UIView {
                         self.addSubview(button)
                     }
                     
-                    for _ in bnd..<6 {
+                    for _ in bnd+1..<6 {
                         let button = UIButton()
                         button.isUserInteractionEnabled = false
                         button.setImage(emptyStarImage, for: UIControlState())

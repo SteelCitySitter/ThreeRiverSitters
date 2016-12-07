@@ -21,9 +21,6 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     @IBOutlet weak var age: UITextField!
     @IBOutlet weak var status: UITextField!
     @IBOutlet weak var zipCode: UITextField!
-    @IBOutlet weak var state: UITextField!
-    
-    @IBOutlet weak var city: UITextField!
     @IBOutlet weak var phone: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var lastName: UITextField!
@@ -37,8 +34,6 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     var ref: FIRDatabaseReference!
     var currentUser: User!
     
-    //var careGiverIDRatingScreen: String = "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2"
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,11 +43,12 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
             self.currentUser = User(authData: user)
             
             self.ImagePicker.delegate = self
-            self.ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
+            self.ref =  FIRDatabase.database().reference()
             
             self.ref.child("caregivers").child(self.currentUser.uid).observeSingleEvent(of: .value, with: {snapshot in
                 
                 let profile1 = snapshot.value as? NSDictionary
+                
                 let name = profile1?["firstName"] as? String
                 self.firstName.text = name
                 
@@ -91,8 +87,8 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
             spaceRef.data(withMaxSize: 1 * 1080 * 1080) { (data, error) -> Void in
                 if (error != nil) {
                     // Uh-oh, an error occurred!
-                    let alert = UIAlertController(title: "Error in downloading image", message: "message", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Click", style: UIAlertActionStyle.default, handler: nil))
+                    let alert = UIAlertController(title: "Set your image", message: "Touch the placeholder image to set your profile image", preferredStyle: UIAlertControllerStyle.alert)
+                    alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
                     self.present(alert, animated: true, completion: nil)
                 }
                     
@@ -111,7 +107,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     }
     
     @IBAction func editButton(_ sender: UIButton) {
-        let alert = UIAlertController(title: "Profile Fields are now editable", message: "click Ok to continue", preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Profile Fields are now editable", message: "Click OK to continue", preferredStyle: UIAlertControllerStyle.alert)
         alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
         self.firstName.isUserInteractionEnabled = true
@@ -136,7 +132,7 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
                         self.ref.child("caregivers").child(userKey).child("lastName").setValue(self.lastName.text!)
                         self.ref.child("caregivers").child(userKey).child("email").setValue(self.email.text!)
                         self.ref.child("caregivers").child(userKey).child("phone").setValue(self.phone.text!)
-                        self.ref.child("caregivers").child(userKey).child("address").setValue(self.addressField.text!)
+                        self.ref.child("caregivers").child(userKey).child("addressLine1").setValue(self.addressField.text!)
                         self.ref.child("caregivers").child(userKey).child("zipcode").setValue(self.zipCode.text!)
                     //self.ref.child("caregivers").child(userKey).child("city").setValue(self.city.text!)
                       //  self.ref.child("caregivers").child(userKey).child("state").setValue(self.state.text!)

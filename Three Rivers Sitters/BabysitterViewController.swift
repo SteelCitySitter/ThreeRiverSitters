@@ -91,7 +91,7 @@ class BabysitterViewController: UITableViewController {
         
         let storage = FIRStorage.storage().reference(forURL: "gs://three-rivers-sitters.appspot.com")
         
-        let imageFile = "babysitters/" + onlineBabysitterIDs[indexPath.row] + ".png"
+        let imageFile = "babysitters/" + onlineBabysitterIDs[indexPath.row] + ".jpg"
         
         let imageRef = storage.child(imageFile)
         
