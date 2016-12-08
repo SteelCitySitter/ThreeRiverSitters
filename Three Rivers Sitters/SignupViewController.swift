@@ -50,12 +50,11 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
     
     @IBOutlet weak var categoryField: LoginTextField!
     
-    @IBOutlet weak var infoField: LoginTextField!
     
     
     @IBAction func backButtonTapped(_ sender: Any) {
         
-        self.performSegue(withIdentifier: "backHome", sender: sender)
+        self.performSegue(withIdentifier: "unwindToLogin", sender: self)
         
     }
     
@@ -76,7 +75,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         let state = stateField.text
         let zipcode = zipcodeField.text
         let category = categoryField.text
-        let info = infoField.text
         
         var userInfo = [String: String]()
         
@@ -93,7 +91,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         "birthday":birthday!,
                         "gender":sex!,
                         "phone":phone!,
-                        "category":info!,
+                        "category":"babysitter",
                         "status":"pending",
                         "availability": "no"]
         }
@@ -111,7 +109,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                             "birthday":birthday!,
                             "gender":sex!,
                             "phone":phone!,
-                            "children":info!,
                             "status":"pending"]
         }
         
@@ -174,6 +171,7 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                     }
                 }
                 
+                self.performSegue(withIdentifier: "unwindToLogin", sender: self)
                 
             }
         
@@ -240,7 +238,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
         stateField.resignFirstResponder()
         zipcodeField.resignFirstResponder()
         categoryField.resignFirstResponder()
-        infoField.resignFirstResponder()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

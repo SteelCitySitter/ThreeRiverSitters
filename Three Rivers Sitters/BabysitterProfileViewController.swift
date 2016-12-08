@@ -123,6 +123,24 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     
     @IBAction func saveButton(_ sender: Any) {
         
+        let storage = FIRStorage.storage()
+        
+        let storageRef = storage.reference(forURL: "gs://three-rivers-sitters.appspot.com")
+        
+        //  var imageData = UIImagePNGRepresentation(profilePicture.image!)
+        
+        let imageData = UIImageJPEGRepresentation(profilePicture.image!, 0.9)
+        
+        let uploadPath: String = "babysitters/\(currentUser.uid).jpg"
+        
+        if (imageData != nil) {
+            
+            let postPicReference = storageRef.child(uploadPath)
+            
+            postPicReference.put(imageData!, metadata: nil, completion: nil)
+            
+        }
+        
         self.ref.child("caregivers").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {

@@ -23,7 +23,6 @@ class BabysitterViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //FIRApp.configure()
         //let rootRef = FIRDatabase.database().reference()
         
         
@@ -100,7 +99,6 @@ class BabysitterViewController: UITableViewController {
         //cell.profileImage.image = #imageLiteral(resourceName: "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2")
         cell.profileName.text = onlineBabysitters[indexPath.row]
         cell.profileDistance.text = "\((Double(indexPath.row) + 1.0) * 0.38) miles"
-        cell.availableLabel.text = "2.30 pm"
         return cell
     }
     
@@ -138,6 +136,10 @@ class BabysitterViewController: UITableViewController {
                 destinationVC.babysitterID = onlineBabysitterIDs[index!]
             }
         }
+    }
+    
+    @IBAction func unwindToBabysitterView(segue: UIStoryboardSegue) {
+        
     }
     
     

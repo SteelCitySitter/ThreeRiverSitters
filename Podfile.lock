@@ -1,4 +1,5 @@
 PODS:
+  - Alamofire (4.2.0)
   - Firebase/Auth (3.10.0):
     - Firebase/Core
     - FirebaseAuth (= 3.0.6)
@@ -58,20 +59,24 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.0)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.0)
   - GTMSessionFetcher/Core (1.1.7)
-  - OneSignal (2.3.2)
+  - OneSignal (2.3.3)
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
+  - Stripe (9.2.0)
 
 DEPENDENCIES:
+  - Alamofire (~> 4.0)
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
   - Firebase/Messaging
   - FirebaseUI/Storage (~> 0.6)
   - OneSignal
+  - Stripe
 
 SPEC CHECKSUMS:
+  Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
   Firebase: 387f37c7dca894a02708da9ff35ba147040eae9e
   FirebaseAnalytics: 9c67af0ebeb8d2146c9b4ea2616439affa947b58
   FirebaseAuth: 96e9674ff31d6e1f826d53e26aa003a57cab0295
@@ -85,9 +90,10 @@ SPEC CHECKSUMS:
   GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
   GoogleToolboxForMac: 2b2596cbb7186865e98cadf2b1e262d851c2b168
   GTMSessionFetcher: a1f8ed39e4fe21c68957daed472c7afbcdf29166
-  OneSignal: ef0cb6f93a211da228a1cb31c85dfbeb632f3fd9
+  OneSignal: 999cf19917ec5d0f305247264263456e6aa21ae7
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  Stripe: a47770e82db059d0e7e160f9aabc2997055ee911
 
-PODFILE CHECKSUM: b2a35d237f3c821386c0566680ee1d0410e653fc
+PODFILE CHECKSUM: d1f7969718a557886c58931e5e75eb707bafcb46
 
-COCOAPODS: 1.0.0
+COCOAPODS: 1.2.0.beta.1

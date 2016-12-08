@@ -13,4 +13,6 @@ target 'Three Rivers Sitters' do
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
   pod 'OneSignal'
+  pod 'Stripe'
+  pod 'Alamofire','~> 4.0'
 end

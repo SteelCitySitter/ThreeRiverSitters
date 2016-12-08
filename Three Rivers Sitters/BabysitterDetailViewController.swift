@@ -27,6 +27,10 @@ class BabysitterDetailViewController: UIViewController {
 
     @IBOutlet weak var address2Label: UILabel!
     
+    var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
+    
+    var timerVC = TimerViewController()
+    
     var currentUser: User!
     var fullName: String!
     var babysitterName: String!
@@ -116,7 +120,15 @@ class BabysitterDetailViewController: UIViewController {
         
         //self.ref.child("pending-requests").child((self.babysitterID)!).setValue(bookingInfo)
         
-        OneSignal.postNotification(["contents": ["en": "New notification"], "include_player_ids": ["a98cdbcb-9259-48c7-9ff2-3f742e389ec2"]])
+        self.ref.child("caregivers").child((self.babysitterID)!).observe(.value, with: { (snapshot) in
+            
+            let values = snapshot.value as? NSDictionary
+            
+            let pushID: String = values?["pushID"] as! String
+            
+            OneSignal.postNotification(["contents": ["en": "Babysitting service requested by \(self.fullName)"], "include_player_ids": [pushID]])
+            
+        })
         
         let successAlert = UIAlertController(title: "Booking Info", message: "Booking request sent to babysitter. You should receive a confirmation if the babysitter accepts.", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -126,6 +138,49 @@ class BabysitterDetailViewController: UIViewController {
         successAlert.addAction(okAction)
         self.present(successAlert, animated: true, completion: nil)
         
+        self.activityIndicator.center = self.view.center
+        self.activityIndicator.hidesWhenStopped = true
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.view.addSubview(self.activityIndicator)
+        self.activityIndicator.startAnimating()
+        
+        let approveListener:FIRDatabaseReference! = self.ref.child("families").child(self.currentUser.uid).child("bookingStatus")
+        
+        approveListener.observe(.value, with: {( snap: FIRDataSnapshot) in
+            
+            
+            if((snap.value as? String)! == "accepted"){
+                print("booked")
+                self.activityIndicator.stopAnimating()
+                
+                var bookingInfo = [String: String]()
+                
+                bookingInfo = ["caregiver":self.babysitterID,
+                               "comment":"",
+                               "family":self.currentUser.uid,
+                               "payment-status":"pending",
+                               "rating":"0",
+                               "service-duration":"1",
+                               "total":"15"]
+                
+                
+                let alert = UIAlertController(title: "Request Info", message: "Request accepted", preferredStyle: UIAlertControllerStyle.alert)
+                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                
+                self.timerVC = self.storyboard!.instantiateViewController(withIdentifier: "timerView") as! TimerViewController
+                self.timerVC.dataFromBookScreen = self.babysitterID
+                self.navigationController?.present(self.timerVC, animated: true, completion: nil)
+                
+            }
+            
+            else if((snap.value as? String)! == "rejected") {
+                
+                print("rejected")
+                self.activityIndicator.stopAnimating()
+                approveListener.setValue("NoRequest")
+            }
+        })
         
     }
 

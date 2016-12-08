@@ -221,5 +221,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func unwindToLogin(segue: UIStoryboardSegue) {}
 
 }

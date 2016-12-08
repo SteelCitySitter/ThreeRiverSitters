@@ -12,10 +12,10 @@ import FirebaseAuth
 
 class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     //@IBOutlet weak var editbutton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
-    @IBOutlet weak var age: UITextField!
     @IBOutlet weak var status: UITextField!
     @IBOutlet weak var zipCode: UITextField!
     @IBOutlet weak var phone: UITextField!
@@ -30,10 +30,14 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
     
     var ref: FIRDatabaseReference!
     var currentUser: User!
-    
-    
+    /*
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+    }
+    */
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
@@ -118,6 +122,25 @@ class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UI
     }
     
     @IBAction func saveButton(_ sender: Any) {
+        
+        let storage = FIRStorage.storage()
+        
+        let storageRef = storage.reference(forURL: "gs://three-rivers-sitters.appspot.com")
+        
+        //  var imageData = UIImagePNGRepresentation(profilePicture.image!)
+        
+        let imageData = UIImageJPEGRepresentation(profilePicture.image!, 0.9)
+        
+        let uploadPath: String = "families/\(currentUser.uid).jpg"
+        
+        if (imageData != nil) {
+            
+            let postPicReference = storageRef.child(uploadPath)
+            
+            postPicReference.put(imageData!, metadata: nil, completion: nil)
+            
+        }
+
         
         self.ref.child("families").observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {

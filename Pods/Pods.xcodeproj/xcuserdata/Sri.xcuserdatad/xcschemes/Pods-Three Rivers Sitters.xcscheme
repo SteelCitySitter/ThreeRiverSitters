@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0810"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "EC4097EBD826656F6FD0E0EDC367AE51"
+               BlueprintIdentifier = "5087997CBBD07272BDD22A0F97EBB4FB"
                BuildableName = "Pods_Three_Rivers_Sitters.framework"
                BlueprintName = "Pods-Three Rivers Sitters"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC4097EBD826656F6FD0E0EDC367AE51"
+            BlueprintIdentifier = "5087997CBBD07272BDD22A0F97EBB4FB"
             BuildableName = "Pods_Three_Rivers_Sitters.framework"
             BlueprintName = "Pods-Three Rivers Sitters"
             ReferencedContainer = "container:Pods.xcodeproj">
@@ -60,15 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "EC4097EBD826656F6FD0E0EDC367AE51"
-            BuildableName = "Pods_Three_Rivers_Sitters.framework"
-            BlueprintName = "Pods-Three Rivers Sitters"
-            ReferencedContainer = "container:Pods.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -97,9 +97,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
 
 @IBAction func signoutButtonPressed(_ sender: AnyObject) {
     dismiss(animated: true, completion: nil)
-    
-    
+
 }
+    
+@IBAction func unwindToRequestTableView(segue: UIStoryboardSegue) {
+        
+    }
+    
 /*
  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
  
@@ -129,56 +133,4 @@ override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     }
 }
 
-/*
- public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
- 
- return 4;
- }
- 
- public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
- 
- let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CustomCell
- 
- if(indexPath.row == 1) {
- cell.profileImage.image = #imageLiteral(resourceName: "uzU48XY3feTXoULAy5RXzxJQJhn1")
- cell.profileName.text = "Sadie Jones"
- cell.profileDistance.text = "0.89 mi"
- cell.availableLabel.text = "2.30 pm"
- return cell
- }
- 
- else if(indexPath.row == 2) {
- cell.profileImage.image = #imageLiteral(resourceName: "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2")
- cell.profileName.text = "Kate Upton"
- cell.profileDistance.text = "1.20 mi"
- cell.availableLabel.text = "4.00 pm"
- return cell
- }
- 
- else if(indexPath.row == 3) {
- cell.profileImage.image = #imageLiteral(resourceName: "kfS3K38eulQJKr0NQpUizRjOMOF3")
- cell.profileName.text = "Irina Shayk"
- cell.profileDistance.text = "2.00 mi"
- cell.availableLabel.text = "6.30 pm"
- return cell
- }
- 
- else {
- cell.profileImage.image = #imageLiteral(resourceName: "CLDZvRocUbcXrGcbZFmQXtMh6I62")
- cell.profileName.text = "Karlie Kloss"
- cell.profileDistance.text = "2.57 mi"
- cell.availableLabel.text = "1.00 pm"
- return cell
- }
- 
- }
- */
-
-
-/*
- func adaptivePresentationStyle(for controller: UIPresentationController) -> UIModalPresentationStyle {
- // return UIModalPresentationStyle.FullScreen
- return UIModalPresentationStyle.none
- }
- */
 }

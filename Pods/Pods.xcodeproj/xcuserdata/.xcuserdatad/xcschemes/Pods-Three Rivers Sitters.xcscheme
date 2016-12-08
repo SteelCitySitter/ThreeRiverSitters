@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '771A84CF03C6BE5E4414C8218975F5ED'
+               BlueprintIdentifier = '241207423C91A8F95D649FE32EEC0C19'
                BlueprintName = 'Pods-Three Rivers Sitters'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'Pods-Three Rivers Sitters.framework'>

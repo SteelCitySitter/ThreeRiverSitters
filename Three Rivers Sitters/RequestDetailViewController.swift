@@ -14,6 +14,7 @@ import FirebaseStorage
 import FirebaseStorageUI
 import SDWebImage
 import FirebaseMessaging
+import OneSignal
 
 class RequestDetailViewController: UIViewController {
 
@@ -112,21 +113,58 @@ class RequestDetailViewController: UIViewController {
     @IBAction func acceptRequest(_ sender: Any) {
         
         var bookingInfo = [String: String]()
-            
-            bookingInfo = ["caregiver":currentUser.uid,
-                        "comment":"",
-                        "family":familyID,
-                        "payment-status":"pending",
-                        "rating":"0",
-                        "service-duration":"1",
-                        "total":"15"
-                        ]
         
-        self.ref.child("booking-schema").childByAutoId().updateChildValues(bookingInfo)
+        bookingInfo = ["caregiver":currentUser.uid,
+                       "comment":"",
+                       "family":familyID,
+                       "payment-status":"pending",
+                       "rating":"0",
+                       "service-duration":"1",
+                       "total":"15"]
+        
+        self.ref.child("pending-requests").child(currentUser.uid).observe(.value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in result {
+                    print("familyID inside:\(self.familyID)")
+                    let userKey = child.key
+                    if(userKey == self.familyID){
+                        self.ref.child("families").child(userKey).child("bookingStatus").setValue("accepted")
+                    }else {
+                        self.ref.child("families").child(userKey).child("bookingStatus").setValue("rejected")
+                    }
+                }
+            }
+        })
+        
+        let timeStamp: String = String(Int64(NSDate().timeIntervalSince1970))
+        
+        //print(timeStamp)
+        
+        self.ref.child("booking-history").child(currentUser.uid).setValue([timeStamp: ""])
+        
+        self.ref.child("booking-history").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
+        
+        self.ref.child("booking-schema").child(currentUser.uid).setValue([timeStamp: ""])
+        
+        self.ref.child("booking-schema").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
         
         self.ref.child("pending-requests").child(currentUser.uid).setValue(nil)
         
         self.ref.child("online-caregivers").child(currentUser.uid).setValue(nil)
+        
+        self.ref.child("families").child(familyID).observe(.value, with: { (snapshot) in
+            
+            let values = snapshot.value as? NSDictionary
+            
+            let pushID: String = values?["pushID"] as! String
+            
+            OneSignal.postNotification(["contents": ["en": "Request accepted by \(self.fullName)"], "include_player_ids": [pushID]])
+            
+        })
+        
+        let serviceVC = ServiceViewController()
+        serviceVC.storyboard?.instantiateViewController(withIdentifier: "serviceView")
+        present(serviceVC, animated: true, completion: nil)
         
         /*
         var bookingInfo = [String: String]()
@@ -152,6 +190,26 @@ class RequestDetailViewController: UIViewController {
         self.present(successAlert, animated: true, completion: nil)
     */
    }
+    
+    
+    
+    @IBAction func declineRequest(_ sender: Any) {
+        
+     self.ref.child("pending-requests").child(currentUser.uid).setValue(nil)
+        
+     self.ref.child("families").child(familyID).observe(.value, with: { (snapshot) in
+            
+            let values = snapshot.value as? NSDictionary
+            
+            let pushID: String = values?["pushID"] as! String
+            
+            OneSignal.postNotification(["contents": ["en": "Request declined by \(self.fullName)"], "include_player_ids": [pushID]])
+            
+        })
+        
+        self.performSegue(withIdentifier: "unwindToRequests", sender: self)
+        
+    }
  
     
 }
