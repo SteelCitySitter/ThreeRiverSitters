@@ -10,6 +10,7 @@ import Firebase
 class ServiceRatingControl: UIView {
     // MARK: Properties
     var careGiverIDRatingScreen: String!
+    var timeStampFromRatingScreen: String!
     var rating = 0 {
         didSet {
             setNeedsLayout()
@@ -21,15 +22,17 @@ class ServiceRatingControl: UIView {
     var stars = 5
     var rting: String!
     // MARK: Initialization
-
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
         let filledStarImage = UIImage(named: "filledStar")
         let emptyStarImage = UIImage(named: "emptyStar")
         
+        
         for _ in 0..<5 {
             let button = UIButton()
+            
             
             button.setImage(emptyStarImage, for: UIControlState())
             button.setImage(filledStarImage, for: .selected)
@@ -66,66 +69,48 @@ class ServiceRatingControl: UIView {
     // MARK: Button Action
     
     func ratingButtonTapped(_ button: UIButton) {
-        rating = ratingButtons.index(of: button)! + 1
+        
+     rating = ratingButtons.index(of: button)! + 1
        rting = String(rating)
+        
+        ref = FIRDatabase.database().reference()
     
     //Rating--> capturing the stars, calculating the rating and writing to database
-  //  print("fromRatingViewID:\(careGiverIDRatingScreen)")
-        self.ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
-        self.ref.child("Booking-Schema").observeSingleEvent(of: .value, with: { (snapshot) in
-            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                for child in result {
-                    let userKey = child.key
-                    if(userKey == "iwEEREHBop98Tghe234"){
-                        self.ref.child("Booking-Schema").child(userKey).child("Rating").setValue(self.rting)
-                    }
-                }
-            }
-        })
-    
-       // Fetching the current rating from the babysitter schema to calculate the final rating
-        self.ref.child("caregivers").child(self.careGiverIDRatingScreen).observeSingleEvent(of: .value, with: {snapshot in
+        
+   // print("from Service rating controller-->>:\(careGiverIDRatingScreen!)")
+  //      print("timestamp-->:\(timeStampFromRatingScreen!)")
+        
+   //     print(rting)
+        self.ref.child("booking-schema").child(careGiverIDRatingScreen!).child(timeStampFromRatingScreen!).updateChildValues(["rating":rting])
+        
+        self.ref.child("booking-history").child(careGiverIDRatingScreen!).child(timeStampFromRatingScreen!).updateChildValues(["rating":rting])
+        
+   //     print("caregiverid-->:\(self.careGiverIDRatingScreen)")
+   //     print("timestamp-->:\(self.timeStampFromRatingScreen)")
+       
+        self.ref.child("caregivers").child(self.careGiverIDRatingScreen!).observeSingleEvent(of: .value, with: {snapshot in
             
             let profile1 = snapshot.value as? NSDictionary
             let totalRating = profile1?["totalRating"] as? Int
+   //         print("Total Rating-->\(totalRating!)")
+            
             let totalRaters = profile1?["totalRaters"] as? Int
-            let tRating: Int = Int(totalRating!) + Int(self.rting)!
-            let fRating: Int = tRating / (totalRaters! + 1)
+   //         print("Total Raters-->\(totalRaters)")
+     //       let tRating: Int = Int(totalRating!) + Int(self.rting)!
+    //        let fRating: Int = tRating / (totalRaters! + 1)
             
-            self.ref.child("caregivers").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    for child in result {
-                        let userKey = child.key
-                        if(userKey == self.careGiverIDRatingScreen){
-                            self.ref.child("caregivers").child(userKey).child("totalRating").setValue(tRating)
-                        }
-                    }
-                    for child in result {
-                        let userKey = child.key
-                        if(userKey == self.careGiverIDRatingScreen){
-                            self.ref.child("caregivers").child(userKey).child("totalRaters").setValue(totalRaters! + 1)
-                        }
-                    }
-                }
-            })
             
-       // Wrinting the final rating - > DB under caregiver schema
+      //  self.ref.child("caregivers").child(self.careGiverIDRatingScreen!).updateChildValues(["totalRating":totalRating as? String])
             
-            self.ref.child("caregivers").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    for child in result {
-                        let userKey = child.key
-                        if(userKey == self.careGiverIDRatingScreen){
-                            self.ref.child("caregivers").child(userKey).child("rating").setValue(fRating)
-                        }
-                    }
-                }
-            })
+      //      self.ref.child("caregivers").child(self.careGiverIDRatingScreen!).updateChildValues(["totalRaters":totalRaters as? String])
             
+         //   let finalRating = String(fRating)
+       // Writing the final rating - > DB under caregiver schema
+            
+            self.ref.child("caregivers").child(self.careGiverIDRatingScreen!).updateChildValues(["rating":"4"])
         })
-        
 
-        updateButtonSelectionStates()
+           updateButtonSelectionStates()
     }
     
     func updateButtonSelectionStates() {

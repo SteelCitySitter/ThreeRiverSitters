@@ -38,6 +38,14 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if availabilitySwitch.isOn {
+            
+            let fullName: String = self.firstName.text! + " " + self.lastName.text!
+                
+                let newRef = self.ref.child("online-caregivers")
+                newRef.updateChildValues([currentUser.uid: fullName])
+        }
+        
         FIRAuth.auth()!.addStateDidChangeListener { auth, user in
             guard let user = user else { return }
             self.currentUser = User(authData: user)
@@ -221,6 +229,12 @@ class BabysitterProfileViewController: UIViewController,UIImagePickerControllerD
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func unwindToBabysitterProfileView(segue: UIStoryboardSegue) {
+        
+    }
+    
+    
     
     
 }

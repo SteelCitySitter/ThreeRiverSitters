@@ -5,7 +5,7 @@ platform :ios, "10.0"
 source 'https://github.com/CocoaPods/Specs.git'
 use_frameworks!
 
-target 'Three Rivers Sitters' do
+target 'ThreeRiversSitters' do
   pod 'Firebase/Core’
   pod ‘Firebase/Auth’
   pod 'Firebase/Database'

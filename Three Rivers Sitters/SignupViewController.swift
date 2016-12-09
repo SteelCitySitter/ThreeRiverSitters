@@ -93,7 +93,9 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         "phone":phone!,
                         "category":"babysitter",
                         "status":"pending",
-                        "availability": "no"]
+                        "availability": "no",
+                        "totalRating":"0",
+                        "totalRaters":"0"]
         }
          
         else if category == "parent" {
@@ -170,8 +172,6 @@ class SignUpViewController: UIViewController, UITextFieldDelegate, UIPickerViewD
                         // Email sent.
                     }
                 }
-                
-                self.performSegue(withIdentifier: "unwindToLogin", sender: self)
                 
             }
         

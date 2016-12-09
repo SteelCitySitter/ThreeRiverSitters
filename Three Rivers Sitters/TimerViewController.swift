@@ -11,11 +11,11 @@ import Firebase
 
 class TimerViewController: UIViewController, UIViewControllerTransitioningDelegate {
     
-    var dataFromBookScreen : String!
-
+    var babySitterIDFromBookScreen : String!
+    var timeStampFromBookScreen : String!
+    
     @IBOutlet weak var fName: UILabel!
     @IBOutlet weak var lName: UILabel!
-    @IBOutlet weak var profilePic: UIImageView!
     @IBOutlet weak var cLable: UILabel!
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var startButton: UIButton!
@@ -40,33 +40,9 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         stopButton.layer.borderWidth = 2
         stopButton.layer.borderColor = UIColor.white.cgColor
         
-        profilePic.layer.cornerRadius = profilePic.frame.size.width / 2
-        profilePic.layer.borderWidth = 2
-        profilePic.layer.borderColor = UIColor.white.cgColor
-        
-        let storage = FIRStorage.storage()
-        let storageRef = storage.reference(forURL: "gs://three-rivers-sitters.appspot.com")
-        let imagesRef = storageRef.child("babysitters")
-        let fName: String = "\(dataFromBookScreen).jpg"
-        let fileName = fName
-        
-        let spaceRef = imagesRef.child(fileName)
-        spaceRef.data(withMaxSize: 1 * 1080 * 1080) { (data, error) -> Void in
-            if (error != nil) {
-                // Uh-oh, an error occurred!
-            }
-                
-            else {
-                // Data for "images/island.jpg" is returned
-                // ... let islandImage: UIImage! = UIImage(data: data!)
-                self.profilePic.image = UIImage(data: data!)
-            }
-        
         // Do any additional setup after loading the view, typically from a nib.
-        }
         
-        
-        ref.child("caregivers").child(dataFromBookScreen).observe(.value, with: { snap in
+        ref.child("caregivers").child(babySitterIDFromBookScreen).observe(.value, with: { snap in
             
             let profile = snap.value as? NSDictionary
             let firstName = profile?["firstName"] as? String
@@ -83,6 +59,8 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         payVC.transitioningDelegate = self
         payVC.modalPresentationStyle = .custom
         payVC.servHrs = self.serviceHours
+        payVC.timeStampFromTimerScreen = self.timeStampFromBookScreen
+        payVC.babySitterIDFromTimerScrn = self.babySitterIDFromBookScreen
     }
     
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
@@ -115,16 +93,29 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         timer.invalidate()
     //   self.ref.child("Booking-Schema").child("iwEEREHBop98Tghe234").setValue(["servicedHrs": chours])
         
-        self.ref.child("booking-schema").observeSingleEvent(of: .value, with: { (snapshot) in
+        self.ref.child("booking-schema").child(babySitterIDFromBookScreen).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
                     let userKey = child.key 
-                    if(userKey == self.dataFromBookScreen){
-                        self.ref.child("booking-schema").child(userKey).child("service-duration").setValue(self.serviceHours)
+                    if(userKey == self.timeStampFromBookScreen){
+                        self.ref.child("booking-schema").child(self.babySitterIDFromBookScreen).child(userKey).child("service-duration").setValue(self.serviceHours)
                     }
                 }
             }
         })
+        // ----> booking history
+        self.ref.child("booking-history").child(babySitterIDFromBookScreen).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in result {
+                    let userKey = child.key
+                    if(userKey == self.timeStampFromBookScreen){
+                        self.ref.child("booking-history").child(self.babySitterIDFromBookScreen).child(userKey).child("service-duration").setValue(self.serviceHours)
+                    }
+                }
+            }
+        })
+        
+        
     }
     
     func updateTime() {
@@ -136,7 +127,13 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         //calculate the hours in elapsed time.
         let hours = UInt8(elapsedTime / 3600.0)
         elapsedTime -= (TimeInterval(hours) * 3600)
-       // self.chours = hours
+       self.serviceHours = hours
+        
+        if(self.serviceHours < 1)
+        {self.serviceHours = 1
+        }else{
+            self.serviceHours = hours
+        }
         
         //calculate the minutes in elapsed time.
         let minutes = (UInt8(elapsedTime / 60.0)) % 60
@@ -145,7 +142,7 @@ class TimerViewController: UIViewController, UIViewControllerTransitioningDelega
         //calculate the seconds in elapsed time.
         let seconds = UInt8(elapsedTime)
         elapsedTime -= TimeInterval(seconds)
-        self.serviceHours = seconds
+    //    self.serviceHours = seconds
         //find out the fraction of milliseconds to be displayed.
         // let fraction = UInt8(elapsedTime * 100)
         

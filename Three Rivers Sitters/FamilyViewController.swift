@@ -13,7 +13,7 @@ import FirebaseAuth
 class FamilyViewController: UIViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     
-    //@IBOutlet weak var editbutton: UIButton!
+    //@IbBOutlet weak var editbutton: UIButton!
     @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var profilePicture: UIImageView!
     @IBOutlet weak var status: UITextField!

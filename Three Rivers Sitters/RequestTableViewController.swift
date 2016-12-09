@@ -81,13 +81,13 @@ override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexP
     
     let storage = FIRStorage.storage().reference(forURL: "gs://three-rivers-sitters.appspot.com")
     
-    //let imageFile = "babysitters/" + onlineBabysitterIDs[indexPath.row] + ".png"
+    let imageFile = "families/" + requestingFamilyIDs[indexPath.row] + ".jpg"
     
-    //let imageRef = storage.child(imageFile)
+    let imageRef = storage.child(imageFile)
     
-    //cell.profileImage.sd_setImage(with: imageRef)
+    cell.profileImage.sd_setImage(with: imageRef)
     
-    cell.profileImage.image = #imageLiteral(resourceName: "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2")
+    //cell.profileImage.image = #imageLiteral(resourceName: "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2")
     cell.profileName.text = requestingFamilies[indexPath.row]
     cell.profileDistance.text = "\((Double(indexPath.row) + 1.0) * 0.38) miles"
     return cell

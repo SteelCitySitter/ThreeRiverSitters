@@ -27,9 +27,13 @@ class BabysitterDetailViewController: UIViewController {
 
     @IBOutlet weak var address2Label: UILabel!
     
+    @IBOutlet weak var bookButton: UIButton!
+    
+    @IBOutlet weak var waitLabel: UILabel!
+    
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
     
-    var timerVC = TimerViewController()
+  //  var timerVC = TimerViewController()
     
     var currentUser: User!
     var fullName: String!
@@ -43,6 +47,11 @@ class BabysitterDetailViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        definesPresentationContext = true
+        
+        bookButton.isHidden = false
+        waitLabel.isHidden = true
         
         ref = FIRDatabase.database().reference()
         
@@ -106,13 +115,9 @@ class BabysitterDetailViewController: UIViewController {
         
         var bookingInfo: [String: String] = [:]
         
-        //print("Current user is: \(self.babysitterID)")
         
         bookingInfo[currentUser.uid] = self.fullName
         
-        //self.ref.child("pending-requests").updateChildValues([self.babysitterID: ""])
-        
-      //self.ref.child("pending-requests").child(self.babysitterID).updateChildValues(bookingInfo)
         
         self.ref.child("pending-requests").setValue([self.babysitterID: ""])
         
@@ -120,15 +125,15 @@ class BabysitterDetailViewController: UIViewController {
         
         //self.ref.child("pending-requests").child((self.babysitterID)!).setValue(bookingInfo)
         
-        self.ref.child("caregivers").child((self.babysitterID)!).observe(.value, with: { (snapshot) in
+        self.ref.child("caregivers").child((self.babysitterID)!).observeSingleEvent(of: .value, with: {snapshot in
             
-            let values = snapshot.value as? NSDictionary
+            let results = snapshot.value as? NSDictionary
             
-            let pushID: String = values?["pushID"] as! String
+            let pushID: String = results?["pushID"] as! String
             
-            OneSignal.postNotification(["contents": ["en": "Babysitting service requested by \(self.fullName)"], "include_player_ids": [pushID]])
-            
+            OneSignal.postNotification(["contents": ["en": "Babysitting service requested by \(self.fullName!)"], "include_player_ids": [pushID]])
         })
+        
         
         let successAlert = UIAlertController(title: "Booking Info", message: "Booking request sent to babysitter. You should receive a confirmation if the babysitter accepts.", preferredStyle: UIAlertControllerStyle.alert)
         let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default) { (result : UIAlertAction) -> Void in
@@ -136,13 +141,16 @@ class BabysitterDetailViewController: UIViewController {
             }
         
         successAlert.addAction(okAction)
-        self.present(successAlert, animated: true, completion: nil)
+        //self.present(successAlert, animated: true, completion: nil)
         
         self.activityIndicator.center = self.view.center
         self.activityIndicator.hidesWhenStopped = true
-        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
+        self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.startAnimating()
+        
+        bookButton.isHidden = true
+        waitLabel.isHidden = false
         
         let approveListener:FIRDatabaseReference! = self.ref.child("families").child(self.currentUser.uid).child("bookingStatus")
         
@@ -163,14 +171,39 @@ class BabysitterDetailViewController: UIViewController {
                                "service-duration":"1",
                                "total":"15"]
                 
+                let timeStamp: String = String(Int64(NSDate().timeIntervalSince1970))
                 
-                let alert = UIAlertController(title: "Request Info", message: "Request accepted", preferredStyle: UIAlertControllerStyle.alert)
-                alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                //print(timeStamp)
                 
-                self.timerVC = self.storyboard!.instantiateViewController(withIdentifier: "timerView") as! TimerViewController
-                self.timerVC.dataFromBookScreen = self.babysitterID
-                self.navigationController?.present(self.timerVC, animated: true, completion: nil)
+                self.ref.child("booking-history").child(self.babysitterID).setValue([timeStamp: ""])
+                
+                self.ref.child("booking-history").child(self.babysitterID).child(timeStamp).setValue(bookingInfo)
+                self.ref.child("booking-schema").child(self.babysitterID).setValue([timeStamp: ""])
+                
+                    self.ref.child("booking-schema").child(self.babysitterID).child(timeStamp).setValue(bookingInfo)
+                
+                
+          //      let alert = UIAlertController(title: "Request Info", message: "Request accepted", preferredStyle: UIAlertControllerStyle.alert)
+        //        alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+      //          self.present(alert, animated: true, completion: nil)
+                
+                // ---> call timer screen - payment - rating
+                print("here at the timerVC")
+                
+                let timerVC = self.storyboard?.instantiateViewController(withIdentifier: "timerView") as! TimerViewController
+                
+                timerVC.babySitterIDFromBookScreen = self.babysitterID
+                timerVC.timeStampFromBookScreen = timeStamp
+                
+                DispatchQueue.main.async(execute: {() -> Void in
+                    self.present(timerVC, animated: true, completion: nil)
+                })
+                
+            //    let serviceVC = self.storyboard?.instantiateViewController(withIdentifier: "serviceView") as! ServiceViewController
+                
+         //       serviceVC.dataPassed = currentUser.uid
+                
+      //          self.present(serviceVC, animated: true, completion: nil)
                 
             }
             

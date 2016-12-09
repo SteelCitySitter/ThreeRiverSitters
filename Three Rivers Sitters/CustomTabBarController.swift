@@ -15,9 +15,9 @@ class CustomTabBarController: UITabBarController {
         
         self.tabBar.barTintColor = UIColor(red: 0.0/255.0, green: 128.0/255.0, blue: 64.0/255.0, alpha: 1.0)
         
-        let selectedStateImages = ["pin-map-7.png", "babysitter50", "profile-filled.png"]
+        let selectedStateImages = ["babysitter50","pin-map-7.png",  "profile-filled.png"]
         
-        let unselectedStateImages = ["pin-map-7.png", "babysitter-plain", "profile-edit.png",]
+        let unselectedStateImages = ["babysitter-plain","pin-map-7.png", "profile-edit.png",]
         
         if let count = self.tabBar.items?.count {
             for i in 0...(count-1) {

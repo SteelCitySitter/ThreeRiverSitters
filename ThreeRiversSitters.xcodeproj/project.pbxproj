@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		01394E95BE0DE8601D9D6E82 /* Pods_Three_Rivers_Sitters.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D04104F41CD0BF53AF2E9431 /* Pods_Three_Rivers_Sitters.framework */; };
+		100BE3B61DFA0FAE00A8342B /* BookingCalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100BE3B51DFA0FAE00A8342B /* BookingCalloutView.swift */; };
+		100BE3B91DFA0FED00A8342B /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100BE3B71DFA0FED00A8342B /* CustomAnnotationView.swift */; };
+		100BE3BA1DFA0FED00A8342B /* CalloutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100BE3B81DFA0FED00A8342B /* CalloutView.swift */; };
 		103AC2331DDFD7D2006145B5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 103AC2321DDFD7D2006145B5 /* User.swift */; };
 		1049EAB41DF515E7002BF4AF /* FamilyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */; };
 		1049EAB61DF6292D002BF4AF /* RequestTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */; };
@@ -28,6 +31,7 @@
 		10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */; };
 		10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10B1E9921DD9099300709236 /* CustomTabBarController.swift */; };
 		10BB3CD21DF760270045B593 /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */; };
+		10F232581DF9EC33001F476B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F232571DF9EC33001F476B /* MapViewController.swift */; };
 		10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F373371D98C7A5007AD400 /* AppDelegate.swift */; };
 		10F3733B1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 10F373391D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodeld */; };
 		10F3733D1D98C7A5007AD400 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10F3733C1D98C7A5007AD400 /* LoginViewController.swift */; };
@@ -57,6 +61,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		100BE3B51DFA0FAE00A8342B /* BookingCalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingCalloutView.swift; sourceTree = "<group>"; };
+		100BE3B71DFA0FED00A8342B /* CustomAnnotationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		100BE3B81DFA0FED00A8342B /* CalloutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalloutView.swift; sourceTree = "<group>"; };
 		103AC2321DDFD7D2006145B5 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FamilyViewController.swift; sourceTree = "<group>"; };
 		1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestTableViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +87,7 @@
 		10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BabysitterViewController.swift; sourceTree = "<group>"; };
 		10B1E9921DD9099300709236 /* CustomTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTabBarController.swift; sourceTree = "<group>"; };
 		10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
+		10F232571DF9EC33001F476B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		10F373341D98C7A5007AD400 /* ThreeRiversSitters.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThreeRiversSitters.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10F373371D98C7A5007AD400 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10F3733A1D98C7A5007AD400 /* Three_Rivers_Sitters.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Three_Rivers_Sitters.xcdatamodel; sourceTree = "<group>"; };
@@ -187,6 +195,10 @@
 				1049EAB51DF6292D002BF4AF /* RequestTableViewController.swift */,
 				10BB3CD11DF760270045B593 /* RequestDetailViewController.swift */,
 				107D11F51DF9500E00287958 /* ServiceViewController.swift */,
+				10F232571DF9EC33001F476B /* MapViewController.swift */,
+				100BE3B71DFA0FED00A8342B /* CustomAnnotationView.swift */,
+				100BE3B81DFA0FED00A8342B /* CalloutView.swift */,
+				100BE3B51DFA0FAE00A8342B /* BookingCalloutView.swift */,
 				1049EAB31DF515E7002BF4AF /* FamilyViewController.swift */,
 				10B1E9901DD8FFE800709236 /* BabysitterViewController.swift */,
 				106144401DDE2DE900B8AACF /* BabysitterDetailViewController.swift */,
@@ -532,11 +544,14 @@
 				10B1E9931DD9099300709236 /* CustomTabBarController.swift in Sources */,
 				1073A3021DF8C08B003E3F21 /* ratingView.swift in Sources */,
 				107D11F61DF9500E00287958 /* ServiceViewController.swift in Sources */,
+				10F232581DF9EC33001F476B /* MapViewController.swift in Sources */,
+				100BE3B91DFA0FED00A8342B /* CustomAnnotationView.swift in Sources */,
 				106144411DDE2DE900B8AACF /* BabysitterDetailViewController.swift in Sources */,
 				10BB3CD21DF760270045B593 /* RequestDetailViewController.swift in Sources */,
 				1073A3011DF8C08B003E3F21 /* ServiceRatingControl.swift in Sources */,
 				10B1E9911DD8FFE800709236 /* BabysitterViewController.swift in Sources */,
 				1049EAB41DF515E7002BF4AF /* FamilyViewController.swift in Sources */,
+				100BE3BA1DFA0FED00A8342B /* CalloutView.swift in Sources */,
 				1061443C1DDB837700B8AACF /* CustomCell.swift in Sources */,
 				10F373381D98C7A5007AD400 /* AppDelegate.swift in Sources */,
 				1073A2FE1DF8C08B003E3F21 /* TimerViewController.swift in Sources */,
@@ -545,6 +560,7 @@
 				105AD7F71DF11B420050BE32 /* BabysitterHomeViewController.swift in Sources */,
 				1073A2FF1DF8C08B003E3F21 /* circularTransition.swift in Sources */,
 				10F3733F1D98C7A5007AD400 /* SignupViewController.swift in Sources */,
+				100BE3B61DFA0FAE00A8342B /* BookingCalloutView.swift in Sources */,
 				105AD7FB1DF297E10050BE32 /* RatingControl.swift in Sources */,
 				109F19091DA07CFB0078EB37 /* LoginTextField.swift in Sources */,
 				1049EAB61DF6292D002BF4AF /* RequestTableViewController.swift in Sources */,

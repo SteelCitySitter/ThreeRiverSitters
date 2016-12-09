@@ -17,11 +17,11 @@ class paymentViewController: UIViewController, STPPaymentCardTextFieldDelegate ,
     @IBOutlet weak var totalChargeAmt: UILabel!
     @IBOutlet weak var serverHours: UILabel!
     var totalChargeAm: UInt8 = 0
-    var babySitterID: String = " "
+    var babySitterIDFromTimerScrn: String = " "
     @IBOutlet weak var payButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     
     var servHrs: UInt8!
+    var timeStampFromTimerScreen: String = " "
     let paymentTextField = STPPaymentCardTextField()
     
     var activityIndicator : UIActivityIndicatorView = UIActivityIndicatorView()
@@ -34,7 +34,6 @@ class paymentViewController: UIViewController, STPPaymentCardTextFieldDelegate ,
         self.ref =  FIRDatabase.database().reference(fromURL: "https://three-rivers-sitters.firebaseio.com/")
         
         payButton.layer.cornerRadius = payButton.frame.size.width / 2
-        backButton.layer.cornerRadius = backButton.frame.size.width / 2
         
         let rect = CGRect(x: 10, y: 399,width: self.view.frame.width-30, height: 40)
         paymentTextField.frame=rect
@@ -54,16 +53,27 @@ class paymentViewController: UIViewController, STPPaymentCardTextFieldDelegate ,
         self.totalChargeAmt.text = String(totalCharge)
         self.serverHours.text = String(servHrs)
         
-            self.ref.child("booking-schema").observeSingleEvent(of: .value, with: { (snapshot) in
-                if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
-                    for child in result {
-                        let userKey = child.key
-                        if(userKey == self.babySitterID){
-                            self.ref.child("booking-schema").child(userKey).child("total").setValue(totalCharge)
-                        }
+        self.ref.child("booking-schema").child(babySitterIDFromTimerScrn).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in result {
+                    let userKey = child.key
+                    if(userKey == self.timeStampFromTimerScreen){
+                        self.ref.child("booking-schema").child(self.babySitterIDFromTimerScrn).child(userKey).child("total").setValue(totalCharge)
                     }
                 }
-            })
+            }
+        })
+        // ----> booking history
+        self.ref.child("booking-history").child(babySitterIDFromTimerScrn).observeSingleEvent(of: .value, with: { (snapshot) in
+            if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                for child in result {
+                    let userKey = child.key
+                    if(userKey == self.timeStampFromTimerScreen){
+                        self.ref.child("booking-history").child(self.babySitterIDFromTimerScrn).child(userKey).child("total").setValue(totalCharge)
+                    }
+                }
+            }
+        })
         
     }
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -81,11 +91,14 @@ class paymentViewController: UIViewController, STPPaymentCardTextFieldDelegate ,
     @IBAction func paymentAction(_ sender: Any) {
         
         let card = paymentTextField.cardParams
+        print(card)
+        
         self.activityIndicator.center = self.view.center
         self.activityIndicator.hidesWhenStopped = true
         self.activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.whiteLarge
         self.view.addSubview(self.activityIndicator)
         self.activityIndicator.startAnimating()
+        
         STPAPIClient.shared().createToken(withCard: card, completion: {(token,error)-> Void in
             if let error  = error{
                 print(error)
@@ -119,19 +132,35 @@ class paymentViewController: UIViewController, STPPaymentCardTextFieldDelegate ,
             if let JSON = response.result.value{print("JSON: \(JSON)") }
           
             // calling rating screen here --->
-            self.ref.child("booking-schema").observeSingleEvent(of: .value, with: { (snapshot) in
+            
+            self.ref.child("booking-schema").child(self.babySitterIDFromTimerScrn).observeSingleEvent(of: .value, with: { (snapshot) in
                 if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                     for child in result {
                         let userKey = child.key
-                        if(userKey == self.babySitterID){
-                            self.ref.child("booking-schema").child(userKey).child("payment-status").setValue("Paid")
+                        if(userKey == self.timeStampFromTimerScreen){
+                            self.ref.child("booking-schema").child(self.babySitterIDFromTimerScrn).child(userKey).child("payment-status").setValue("Paid")
                         }
                     }
                 }
             })
+            // ----> booking history
+            self.ref.child("booking-history").child(self.babySitterIDFromTimerScrn).observeSingleEvent(of: .value, with: { (snapshot) in
+                if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
+                    for child in result {
+                        let userKey = child.key
+                        if(userKey == self.timeStampFromTimerScreen){
+                            self.ref.child("booking-history").child(self.babySitterIDFromTimerScrn).child(userKey).child("payment-status").setValue("Paid")
+                        }
+                    }
+                }
+            })
+            
+            
             let vc : ratingView = self.storyboard!.instantiateViewController(withIdentifier: "ratingView") as! ratingView
-            vc.babySitterID = self.babySitterID
+            vc.babySitterIDFromPayment = self.babySitterIDFromTimerScrn
+            vc.timeStampFromPayment = self.timeStampFromTimerScreen
             self.present(vc, animated: true, completion: nil)
+        
             
             
         }

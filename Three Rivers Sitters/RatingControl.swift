@@ -12,7 +12,7 @@ class RatingControl: UIView {
     // MARK: Properties
     
     var currentUser: User!
-    //var careGiverIDRatingScreen: String =
+    var careGiverIDRatingScreen: String!
     var rating = 0 {
         didSet {
             setNeedsLayout()

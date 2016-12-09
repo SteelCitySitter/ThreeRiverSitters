@@ -65,8 +65,14 @@ class RequestDetailViewController: UIViewController {
             self.address1Label.text = self.addressLine1
             self.address2Label.text = self.addressLine2
         
+        let storage = FIRStorage.storage().reference(forURL: "gs://three-rivers-sitters.appspot.com")
         
-            self.requestorProfileImage.image = #imageLiteral(resourceName: "iwzNJLiuCVhHUBKJFAA0Uw9p08Y2")
+        let imageFile = "families/" + self.familyID + ".jpg"
+        
+        let imageRef = storage.child(imageFile)
+        
+        self.requestorProfileImage.sd_setImage(with: imageRef)
+
         
             self.requestorProfileImage.layer.cornerRadius =
             self.requestorProfileImage.frame.size.width / 3;
@@ -122,7 +128,7 @@ class RequestDetailViewController: UIViewController {
                        "service-duration":"1",
                        "total":"15"]
         
-        self.ref.child("pending-requests").child(currentUser.uid).observe(.value, with: { (snapshot) in
+        self.ref.child("pending-requests").child(currentUser.uid).observeSingleEvent(of: .value, with: { (snapshot) in
             if let result = snapshot.children.allObjects as? [FIRDataSnapshot] {
                 for child in result {
                     print("familyID inside:\(self.familyID)")
@@ -136,35 +142,39 @@ class RequestDetailViewController: UIViewController {
             }
         })
         
-        let timeStamp: String = String(Int64(NSDate().timeIntervalSince1970))
+    //    let timeStamp: String = String(Int64(NSDate().timeIntervalSince1970))
         
         //print(timeStamp)
         
-        self.ref.child("booking-history").child(currentUser.uid).setValue([timeStamp: ""])
+    //    self.ref.child("booking-history").child(currentUser.uid).setValue([timeStamp: ""])
         
-        self.ref.child("booking-history").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
+   //     self.ref.child("booking-history").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
         
-        self.ref.child("booking-schema").child(currentUser.uid).setValue([timeStamp: ""])
+   //     self.ref.child("booking-schema").child(currentUser.uid).setValue([timeStamp: ""])
         
-        self.ref.child("booking-schema").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
+   //     self.ref.child("booking-schema").child(currentUser.uid).child(timeStamp).setValue(bookingInfo)
         
         self.ref.child("pending-requests").child(currentUser.uid).setValue(nil)
         
         self.ref.child("online-caregivers").child(currentUser.uid).setValue(nil)
         
-        self.ref.child("families").child(familyID).observe(.value, with: { (snapshot) in
-            
-            let values = snapshot.value as? NSDictionary
-            
-            let pushID: String = values?["pushID"] as! String
-            
-            OneSignal.postNotification(["contents": ["en": "Request accepted by \(self.fullName)"], "include_player_ids": [pushID]])
-            
-        })
+        self.ref.child("caregivers").child(currentUser.uid).updateChildValues(["serviceStatus":"active"])
         
-        let serviceVC = ServiceViewController()
-        serviceVC.storyboard?.instantiateViewController(withIdentifier: "serviceView")
-        present(serviceVC, animated: true, completion: nil)
+     //   self.ref.child("families").child(familyID).observe(.value, with: { (snapshot) in
+            
+    //        let values = snapshot.value as? NSDictionary
+            
+    //        let pushID: String = values?["pushID"] as! String
+            
+    //        OneSignal.postNotification(["contents": ["en": "Request accepted by \(self.fullName)"], "include_player_ids": [pushID]])
+            
+    //    })
+        
+        let serviceVC = self.storyboard?.instantiateViewController(withIdentifier: "serviceView") as! ServiceViewController
+        
+        serviceVC.dataPassed = currentUser.uid
+        
+        self.present(serviceVC, animated: true, completion: nil)
         
         /*
         var bookingInfo = [String: String]()
@@ -203,7 +213,7 @@ class RequestDetailViewController: UIViewController {
             
             let pushID: String = values?["pushID"] as! String
             
-            OneSignal.postNotification(["contents": ["en": "Request declined by \(self.fullName)"], "include_player_ids": [pushID]])
+            OneSignal.postNotification(["contents": ["en": "Your last request was declined."], "include_player_ids": [pushID]])
             
         })
         
